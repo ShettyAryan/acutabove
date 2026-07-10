@@ -6,22 +6,22 @@ import { fadeIn } from "@/lib/motion";
 
 const SOCIETY_LINKS = [
   { label: "About the Club", href: "/about" },
-  { label: "Academic Board", href: "/team" },
-  { label: "Society Journals", href: "/gallery" },
-  { label: "Member Login", href: "/contact" },
+  { label: "Team", href: "/team" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const RESOURCE_LINKS = [
   { label: "Case Studies", href: "/gallery" },
   { label: "Surgical Atlas", href: "/gallery" },
   { label: "Research Portal", href: "/about" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Events", href: "/events" },
 ];
 
 const SOCIALS = [
   { label: "Email the society", icon: Mail, href: "mailto:hello@acutabove.org" },
-  { label: "Join our community", icon: Users, href: "/contact" },
-  { label: "Listen to our sessions", icon: Rss, href: "/gallery" },
+  { label: "Join our Event", icon: Users, href: "/events" },
+  { label: "Gallery", icon: Rss, href: "/gallery" },
 ];
 
 const LOGO_SRC = "/android-chrome-192x192.png";
