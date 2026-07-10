@@ -24,7 +24,8 @@ export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isAbout = pathname === "/about";
-  const hasDarkHero = isHome || isAbout;
+  const isEvents = pathname === "/events";
+  const hasDarkHero = isHome || isAbout || isEvents;
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 

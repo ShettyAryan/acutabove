@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { EventsHero } from "@/components/events/EventsHero";
+import { FeaturedEvents } from "@/components/events/FeaturedEvents";
+import { EventsUpdates } from "@/components/events/EventsUpdates";
 
-export const metadata: Metadata = { title: "Events" };
+export const metadata: Metadata = {
+  title: "Events",
+  description:
+    "AXION 2026, Erevana, and A Nick of Time — workshops, symposiums, and flagship surgical conferences from the KMC Mangalore Surgical Society.",
+};
 
 export default function EventsPage() {
   return (
-    <PagePlaceholder
-      eyebrow="What's On"
-      title="Events & Conferences"
-      description="Axion, A Nick of Time, Erevana, and the full workshop calendar will be listed here with registration details — send the Events design next."
-    />
+    <>
+      <EventsHero />
+      <FeaturedEvents />
+      <EventsUpdates />
+    </>
   );
 }
