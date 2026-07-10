@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { GalleryHero } from "@/components/gallery/GalleryHero";
+import { GalleryGrid } from "@/components/gallery/GalleryGrid";
 
-export const metadata: Metadata = { title: "Gallery" };
+export const metadata: Metadata = {
+  title: "Gallery",
+  description:
+    "Photos from workshops, conferences, and society events at A Cut Above — the surgical society of KMC Mangalore.",
+};
 
 export default function GalleryPage() {
   return (
-    <PagePlaceholder
-      eyebrow="Moments"
-      title="Gallery"
-      description="Photos from past conferences, workshops, and society events will live here — send over the Gallery design whenever you have it."
-    />
+    <>
+      <GalleryHero />
+      <GalleryGrid />
+    </>
   );
 }
