@@ -10,9 +10,18 @@ import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 export function AboutHero() {
   return (
     <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden bg-primary px-edge pb-20 pt-32 text-center md:min-h-[78vh] md:pt-40">
-      <div
+      <motion.div
         aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.4, ease: EASE_SIGNATURE }}
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,219,206,0.08)_0%,transparent_70%)]"
+      />
+      <motion.div
+        aria-hidden="true"
+        animate={{ scale: [1, 1.08, 1], opacity: [0.04, 0.08, 0.04] }}
+        transition={{ duration: 8, repeat: Infinity, ease: EASE_SIGNATURE }}
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl"
       />
 
       <div className="relative z-10 mx-auto max-w-4xl">

@@ -1,5 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import type { ReactNode } from "react";
+import { EASE_SIGNATURE, fadeUp, staggerContainer } from "@/lib/motion";
 
 export function ChapterEyebrow({
   children,
@@ -36,8 +40,18 @@ export function ChapterHeader({
   dark?: boolean;
 }) {
   return (
-    <div className={cn("mb-10", className)}>
-      <div className="mb-6 flex items-center gap-4 md:gap-5">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.35 }}
+      variants={staggerContainer(0.12)}
+      className={cn("mb-10", className)}
+    >
+      <motion.div
+        variants={fadeUp}
+        transition={{ duration: 0.7, ease: EASE_SIGNATURE }}
+        className="mb-6 flex items-center gap-4 md:gap-5"
+      >
         <span
           aria-hidden="true"
           className={cn(
@@ -52,26 +66,30 @@ export function ChapterHeader({
         >
           {chapter}
         </ChapterEyebrow>
-      </div>
+      </motion.div>
       {subtitle && (
-        <p
+        <motion.p
+          variants={fadeUp}
+          transition={{ duration: 0.7, ease: EASE_SIGNATURE }}
           className={cn(
             "mb-4 font-body text-sm uppercase tracking-[0.18em]",
             dark ? "text-accent" : "text-primary"
           )}
         >
           {subtitle}
-        </p>
+        </motion.p>
       )}
-      <h2
+      <motion.h2
+        variants={fadeUp}
+        transition={{ duration: 0.85, ease: EASE_SIGNATURE }}
         className={cn(
           "font-display text-[2.75rem] font-bold leading-[1.06] tracking-tight text-balance sm:text-[3.25rem] md:text-[4rem] md:leading-[1.05] md:tracking-[-0.02em]",
           dark ? "text-white" : "text-ink"
         )}
       >
         {title}
-      </h2>
-    </div>
+      </motion.h2>
+    </motion.div>
   );
 }
 
@@ -85,7 +103,11 @@ export function SectionLabel({
   dark?: boolean;
 }) {
   return (
-    <h3
+    <motion.h3
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6, ease: EASE_SIGNATURE }}
       className={cn(
         "mb-5 font-body text-label uppercase tracking-[0.2em]",
         dark ? "text-accent" : "text-primary",
@@ -93,7 +115,7 @@ export function SectionLabel({
       )}
     >
       {children}
-    </h3>
+    </motion.h3>
   );
 }
 

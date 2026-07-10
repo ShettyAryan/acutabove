@@ -1,27 +1,33 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ChapterHeader } from "@/components/about/shared";
+import { StaggerGroup, StaggerItem } from "@/components/about/StaggerGroup";
 import { CHAPTER_KMC } from "@/lib/about-content";
-import { scaleIn } from "@/lib/motion";
+import { EASE_SIGNATURE, fadeLeft, scaleIn, staggerContainer } from "@/lib/motion";
 
 export function ChapterKmc() {
   return (
     <section className="overflow-hidden bg-mint py-section-sm md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
-          <Reveal
-            variants={scaleIn}
-            duration={0.9}
-            amount={0.2}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer(0.1, 0.1)}
             className="order-2 grid grid-cols-2 gap-3 lg:order-1"
           >
             {CHAPTER_KMC.images.map((image, i) => (
-              <div
+              <motion.div
                 key={image.src}
+                variants={scaleIn}
+                transition={{ duration: 0.75, ease: EASE_SIGNATURE }}
+                whileHover={{ y: -4 }}
                 className={`group relative overflow-hidden rounded-2xl shadow-md ${
                   i === 0 ? "col-span-2 aspect-[16/9]" : "aspect-square"
                 }`}
@@ -35,32 +41,38 @@ export function ChapterKmc() {
                     i >= 2 ? "grayscale" : ""
                   }`}
                 />
-              </div>
+              </motion.div>
             ))}
-          </Reveal>
+          </motion.div>
 
-          <Reveal amount={0.3} className="order-1 lg:order-2">
+          <div className="order-1 lg:order-2">
             <ChapterHeader
               number={CHAPTER_KMC.number}
               chapter={CHAPTER_KMC.chapter}
               title={CHAPTER_KMC.title}
             />
-            <div className="space-y-6 text-body-lg leading-[1.75] text-ink-muted">
+            <StaggerGroup className="space-y-6" stagger={0.08}>
               {CHAPTER_KMC.body.map((paragraph) => (
-                <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                <StaggerItem key={paragraph.slice(0, 40)}>
+                  <p className="text-body-lg leading-[1.75] text-ink-muted">
+                    {paragraph}
+                  </p>
+                </StaggerItem>
               ))}
-            </div>
-            <Link
-              href={CHAPTER_KMC.galleryLink.href}
-              className="group mt-10 inline-flex items-center gap-3 border-b-2 border-primary/20 pb-2 font-body text-label uppercase text-primary transition-colors hover:border-primary"
-            >
-              {CHAPTER_KMC.galleryLink.label}
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1.5"
-              />
-            </Link>
-          </Reveal>
+            </StaggerGroup>
+            <Reveal variants={fadeLeft} duration={0.7} delay={0.2} amount={0.4}>
+              <Link
+                href={CHAPTER_KMC.galleryLink.href}
+                className="group mt-10 inline-flex items-center gap-3 border-b-2 border-primary/20 pb-2 font-body text-label uppercase text-primary transition-colors hover:border-primary"
+              >
+                {CHAPTER_KMC.galleryLink.label}
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1.5"
+                />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>
