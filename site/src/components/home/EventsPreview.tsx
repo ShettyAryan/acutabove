@@ -19,7 +19,7 @@ const EVENTS = [
   },
   {
     slug: "a-nick-of-time",
-    title: "A Nick of Time",
+    title: "Nick of Time",
     date: "Registrations open",
     blurb:
       "Our annual flagship surgical conference — the premium experience.",

@@ -20,7 +20,7 @@ export const NICK_OF_TIME = {
   eventDate: "2026-02-14T09:00:00+05:30",
 
   hero: {
-    title: "A Nick of Time",
+    title: "Nick of Time",
     subtitle:
       "An academic fest designed to enhance confidence, prepare undergraduates for final year exams, and bridge the gap between theory and the operating theatre.",
     registerHref: "/contact",
@@ -45,7 +45,7 @@ export const NICK_OF_TIME = {
   heritage: {
     title: "Preserving the Surgical Heritage",
     body: [
-      "Born from the legacy of the Department of Surgery at KMC Mangalore — the first in Karnataka to establish a postgraduate programme over six decades ago — A Nick of Time is more than a conference. It is a commitment to the surgeons of tomorrow.",
+      "Born from the legacy of the Department of Surgery at KMC Mangalore — the first in Karnataka to establish a postgraduate programme over six decades ago — Nick of Time is more than a conference. It is a commitment to the surgeons of tomorrow.",
       "Through A Cut Above, the official surgical society of KMC Mangalore, we bridge classroom anatomy and operating-theatre precision — cultivating leaders who embody technical mastery, academic curiosity, and compassionate care.",
     ],
     image: {

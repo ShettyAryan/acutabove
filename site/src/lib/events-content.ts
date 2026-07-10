@@ -46,7 +46,7 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
   },
   {
     id: "a-nick-of-time",
-    title: "A Nick of Time",
+    title: "Nick of Time",
     tag: "New",
     tagTone: "primary",
     subtitle: "The Flagship Event",
@@ -55,7 +55,7 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
     image: "/images/image2.jpeg",
     alt: "A packed lecture hall during a flagship surgical conference",
     href: "/event/nickoftime",
-    cta: "Explore A Nick of Time",
+    cta: "Explore Nick of Time",
     flagship: true,
   },
 ];

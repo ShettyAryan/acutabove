@@ -95,7 +95,7 @@ export function Hero() {
               <span className="relative inline-flex h-2.5 w-2.5 animate-glow-pulse rounded-full bg-white" />
             </span>
             <span className="font-body text-[11px] uppercase tracking-[0.2em] text-white">
-              A Nick of Time is here
+              Nick of Time is here
             </span>
             <ArrowRight
               size={14}

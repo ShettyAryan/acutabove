@@ -38,7 +38,7 @@ export function EventSubPage({ program }: EventSubPageProps) {
               className="mb-8 inline-flex items-center gap-2 font-body text-label uppercase text-white/70 transition-colors hover:text-white"
             >
               <ArrowLeft size={16} />
-              Back to A Nick of Time
+              Back to Nick of Time
             </Link>
           </Reveal>
 

@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!program) return { title: "Programme" };
 
   return {
-    title: `${program.title} — A Nick of Time`,
+    title: `${program.title} — Nick of Time`,
     description: program.description[0],
   };
 }

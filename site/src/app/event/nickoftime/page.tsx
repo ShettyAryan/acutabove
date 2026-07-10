@@ -7,7 +7,7 @@ import { NickOfTimePrograms } from "@/components/event/nick-of-time/NickOfTimePr
 import { NickOfTimeFinalCta } from "@/components/event/nick-of-time/NickOfTimeFinalCta";
 
 export const metadata: Metadata = {
-  title: "A Nick of Time",
+  title: "Nick of Time",
   description:
     "An academic surgical fest for undergraduate students — workshops, lectures, OSCE simulation, poster and paper presentations, ideathon, and surgical quiz by KMC Mangalore.",
 };
