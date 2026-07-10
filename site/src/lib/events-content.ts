@@ -54,7 +54,7 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
       "Our flagship surgical conference — hands-on, high-stakes, exam-ready. Master the blade under pressure.",
     image: "/images/image2.jpeg",
     alt: "A packed lecture hall during a flagship surgical conference",
-    href: "/events#a-nick-of-time",
+    href: "/event/nickoftime",
     cta: "Explore A Nick of Time",
     flagship: true,
   },

@@ -87,7 +87,7 @@ export function Hero() {
       <div className="relative z-10 flex h-full max-w-5xl flex-col items-center justify-center px-edge text-center">
         <Reveal variants={fadeUp} duration={0.6} amount={0.6} className="mb-8">
           <Link
-            href="/events"
+            href="/event/nickoftime"
             className="group flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 backdrop-blur-md transition-colors hover:bg-white/20"
           >
             <span className="relative flex h-2.5 w-2.5">

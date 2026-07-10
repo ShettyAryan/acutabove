@@ -75,7 +75,12 @@ export function EventsPreview() {
               }}
               className={cn(event.flagship && "md:-mt-8")}
             >
-              <Link href="/events" className="group block">
+              <Link
+                href={
+                  event.flagship ? "/event/nickoftime" : "/events"
+                }
+                className="group block"
+              >
                 <div
                   className={cn(
                     "relative mb-7 aspect-[3/4] overflow-hidden rounded-2xl shadow-md",
