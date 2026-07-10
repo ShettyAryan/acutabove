@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- Color system ------------------------------------------------- */
+  --color-primary: #0f5238;
+  --color-primary-light: #006c48;
+  --color-primary-container: #2d6a4f;
+  --color-on-primary: #ffffff;
+
+  --color-tertiary: #6b3a25;
+  --color-on-tertiary: #ffffff;
+
+  --color-accent: #ffdbce;
+
+  --color-surface: #f9f9f6;
+  --color-background: #f9f9f6;
+  --color-surface-container: #eeeeeb;
+  --color-surface-container-low: #f4f4f1;
+  --color-surface-container-high: #e8e8e5;
+  --color-surface-container-highest: #e2e3e0;
+
+  --color-ink: #1a1c1b;
+  --color-ink-muted: #404943;
+  --color-outline: #bfc9c1;
+  --color-mint: #eaf4ef;
+
+  /* --- Type ----------------------------------------------------------- */
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-body: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-xl: 6rem;
+  --text-display-xl--line-height: 0.98;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-xl--font-weight: 700;
+
+  --text-headline-lg: 3rem;
+  --text-headline-lg--line-height: 1.15;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-md: 2rem;
+  --text-headline-md--line-height: 1.25;
+  --text-headline-md--font-weight: 500;
+
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.65;
+
+  --text-label: 0.75rem;
+  --text-label--line-height: 1;
+  --text-label--letter-spacing: 0.16em;
+  --text-label--font-weight: 700;
+
+  /* --- Layout rhythm ---------------------------------------------------- */
+  --spacing-gutter: 1.5rem;
+  --spacing-edge: 1.25rem;
+  --spacing-edge-lg: 5rem;
+  --spacing-section: 7.5rem;
+  --spacing-section-sm: 4.5rem;
+  --container-max: 80rem;
+
+  /* --- Motion easing ------------------------------------------------------ */
+  --ease-signature: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+  /* Visible, deliberate focus states everywhere — no outline-none traps */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
