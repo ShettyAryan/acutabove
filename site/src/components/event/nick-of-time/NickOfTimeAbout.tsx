@@ -98,7 +98,7 @@ export function NickOfTimeAbout() {
 
       <div className="relative z-10 mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <Reveal amount={0.25} className="mx-auto max-w-3xl text-center">
-          <h2 className="font-display text-[2.25rem] font-bold leading-[1.1] tracking-tight text-ink text-balance sm:text-[2.75rem] md:text-[3.25rem]">
+          <h2 className="font-display text-[2rem] font-bold leading-[1.1] tracking-tight text-ink text-balance sm:text-[2.75rem] md:text-[3.25rem]">
             {about.title}
           </h2>
         </Reveal>

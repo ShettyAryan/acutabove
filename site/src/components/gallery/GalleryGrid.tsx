@@ -43,7 +43,7 @@ export function GalleryGrid() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.02 }}
           variants={staggerContainer(0.04)}
-          className="columns-1 gap-4 sm:columns-2 sm:gap-5 md:columns-3 lg:columns-4"
+          className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 xl:columns-4"
         >
           {GALLERY_IMAGES.map((image, index) => (
             <motion.button
@@ -59,7 +59,7 @@ export function GalleryGrid() {
                 alt={image.alt}
                 width={1200}
                 height={1600}
-                sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
               />
             </motion.button>
@@ -77,14 +77,14 @@ export function GalleryGrid() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-200 flex items-center justify-center bg-ink/90 p-4 backdrop-blur-sm md:p-10"
+            className="fixed inset-0 z-200 flex flex-col items-center justify-center bg-ink/90 p-4 pt-16 backdrop-blur-sm sm:p-8 md:p-10"
             onClick={close}
           >
             <button
               type="button"
               onClick={close}
               aria-label="Close gallery"
-              className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10"
+              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 sm:right-5 sm:top-5"
             >
               <X size={22} />
             </button>
@@ -96,7 +96,7 @@ export function GalleryGrid() {
                 prev();
               }}
               aria-label="Previous image"
-              className="absolute left-3 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 md:left-8"
+              className="absolute bottom-6 left-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 sm:bottom-auto sm:left-6 sm:top-1/2 sm:-translate-y-1/2 md:left-8"
             >
               <ChevronLeft size={24} />
             </button>
@@ -108,7 +108,7 @@ export function GalleryGrid() {
                 next();
               }}
               aria-label="Next image"
-              className="absolute right-3 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 md:right-8"
+              className="absolute bottom-6 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-colors hover:bg-white/10 sm:bottom-auto sm:right-6 sm:top-1/2 sm:-translate-y-1/2 md:right-8"
             >
               <ChevronRight size={24} />
             </button>
@@ -119,7 +119,7 @@ export function GalleryGrid() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
               transition={{ duration: 0.3, ease: EASE_SIGNATURE }}
-              className="relative flex max-h-[80vh] w-full max-w-5xl items-center justify-center"
+              className="relative flex w-full max-w-5xl flex-col items-center"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -128,10 +128,10 @@ export function GalleryGrid() {
                 width={1600}
                 height={1200}
                 sizes="90vw"
-                className="max-h-[80vh] w-auto max-w-full object-contain"
+                className="max-h-[min(70vh,100dvh-10rem)] w-auto max-w-full object-contain"
                 priority
               />
-              <p className="absolute inset-x-0 -bottom-10 text-center font-body text-sm text-white/70 md:-bottom-12">
+              <p className="mt-4 px-12 text-center font-body text-xs text-white/70 sm:mt-5 sm:text-sm">
                 {GALLERY_IMAGES[active].alt}
                 <span className="mx-2 text-white/30">·</span>
                 {active + 1} / {GALLERY_IMAGES.length}

@@ -51,13 +51,13 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
           </div>
         )}
       </div>
-      <div className="flex flex-1 flex-col px-5 py-5 text-center">
-        <h3 className="font-display text-xl leading-snug text-ink md:text-[1.35rem]">
+      <div className="flex flex-1 flex-col px-4 py-4 text-center sm:px-5 sm:py-5">
+        <h3 className="font-display text-lg leading-snug text-ink sm:text-xl md:text-[1.35rem]">
           {member.name}
         </h3>
         <p
           className={cn(
-            "mt-2 font-body text-[11px] uppercase tracking-[0.18em] text-primary"
+            "mt-2 font-body text-[10px] uppercase tracking-[0.1em] text-primary sm:text-[11px] sm:tracking-[0.18em]"
           )}
         >
           {member.designation}

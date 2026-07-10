@@ -55,7 +55,7 @@ export function ChapterHeader({
         <span
           aria-hidden="true"
           className={cn(
-            "font-display text-5xl leading-none md:text-6xl",
+            "font-display text-4xl leading-none sm:text-5xl md:text-6xl",
             dark ? "text-white/15" : "text-primary/15"
           )}
         >
@@ -83,7 +83,7 @@ export function ChapterHeader({
         variants={fadeUp}
         transition={{ duration: 0.85, ease: EASE_SIGNATURE }}
         className={cn(
-          "font-display text-[2.75rem] font-bold leading-[1.06] tracking-tight text-balance sm:text-[3.25rem] md:text-[4rem] md:leading-[1.05] md:tracking-[-0.02em]",
+          "font-display text-[2.25rem] font-bold leading-[1.08] tracking-tight text-balance sm:text-[3.25rem] md:text-[4rem] md:leading-[1.05] md:tracking-[-0.02em]",
           dark ? "text-white" : "text-ink"
         )}
       >
@@ -133,7 +133,7 @@ export function StatBlock({
       <span className="font-display text-3xl tracking-tight md:text-4xl">
         {value}
       </span>
-      <span className="font-body text-[10px] uppercase tracking-[0.22em] opacity-70">
+      <span className="font-body text-[10px] uppercase tracking-[0.12em] opacity-70 sm:tracking-[0.22em]">
         {label}
       </span>
     </div>

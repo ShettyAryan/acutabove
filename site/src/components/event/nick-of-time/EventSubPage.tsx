@@ -26,7 +26,7 @@ export function EventSubPage({ program }: EventSubPageProps) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-primary px-edge pb-16 pt-32 md:pt-40">
+      <section className="relative overflow-hidden bg-primary px-edge pb-12 pt-28 sm:pb-16 sm:pt-32 md:pt-40">
         <motion.div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,219,206,0.08)_0%,transparent_70%)]"
@@ -47,7 +47,7 @@ export function EventSubPage({ program }: EventSubPageProps) {
           </p>
 
           <Reveal onMount variants={wipeReveal} duration={1} delay={0.05}>
-            <h1 className="max-w-4xl font-display text-[2.25rem] font-bold leading-[1.06] tracking-tight text-white text-balance sm:text-[3rem] md:text-[3.75rem]">
+            <h1 className="max-w-4xl font-display text-[2rem] font-bold leading-[1.08] tracking-tight text-white text-balance sm:text-[3rem] md:text-[3.75rem]">
               {program.title}
             </h1>
           </Reveal>
@@ -146,9 +146,9 @@ export function EventSubPage({ program }: EventSubPageProps) {
                 <Link
                   key={item.slug}
                   href={programPath(item.slug)}
-                  className="group flex items-center justify-between rounded-xl border border-outline/20 bg-white px-5 py-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md"
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-outline/20 bg-white px-4 py-4 shadow-sm transition-all hover:border-primary/30 hover:shadow-md sm:px-5"
                 >
-                  <span className="font-display text-lg text-ink transition-colors group-hover:text-primary">
+                  <span className="min-w-0 flex-1 pr-2 text-left font-display text-base text-ink transition-colors group-hover:text-primary sm:text-lg">
                     {item.title}
                   </span>
                   <ArrowRight

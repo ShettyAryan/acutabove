@@ -99,8 +99,8 @@ export function About() {
                 className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute inset-x-8 bottom-8 text-white">
-                <p className="font-display text-xl italic leading-snug md:text-2xl">
+              <div className="absolute inset-x-4 bottom-6 text-white sm:inset-x-8 sm:bottom-8">
+                <p className="font-display text-lg italic leading-snug sm:text-xl md:text-2xl">
                   &ldquo;Precision is the difference between a technician and a
                   surgeon.&rdquo;
                 </p>

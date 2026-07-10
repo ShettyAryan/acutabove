@@ -44,7 +44,7 @@ export function Highlights() {
               variants={fadeUp}
               transition={{ duration: 0.7, ease: EASE_SIGNATURE }}
               whileHover={{ y: -6 }}
-              className="group flex flex-col items-center rounded-2xl border border-outline/20 bg-white p-9 text-center shadow-sm transition-shadow hover:shadow-lg hover:shadow-primary/5"
+              className="group flex flex-col items-center rounded-2xl border border-outline/20 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-lg hover:shadow-primary/5 sm:p-9"
             >
               <span className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary/8 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
                 <Icon size={28} strokeWidth={1.75} />

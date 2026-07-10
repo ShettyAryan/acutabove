@@ -43,17 +43,19 @@ function CountdownUnit({
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: EASE_SIGNATURE }}
         className={`font-display tabular-nums tracking-tight text-white ${
-          large ? "text-6xl md:text-7xl" : "text-5xl md:text-6xl"
+          large
+            ? "text-4xl sm:text-5xl md:text-7xl"
+            : "text-3xl sm:text-4xl md:text-6xl"
         }`}
       >
         {pad(value)}
       </motion.span>
-      <span className="mt-3 font-body text-[10px] uppercase tracking-[0.28em] text-white/50">
+      <span className="mt-2 font-body text-[10px] uppercase tracking-[0.12em] text-white/50 sm:mt-3 sm:tracking-[0.28em]">
         {label}
       </span>
       <span
         aria-hidden="true"
-        className="mt-3 h-0.5 w-8 rounded-full bg-tertiary"
+        className="mt-2 h-0.5 w-6 rounded-full bg-tertiary sm:mt-3 sm:w-8"
       />
     </div>
   );
@@ -83,17 +85,17 @@ export function NickOfTimeCountdown() {
           {NICK_OF_TIME.countdown.eyebrow}
         </motion.p>
 
-        <div className="flex flex-col items-center gap-10">
-          <div className="flex w-full max-w-3xl items-center justify-center gap-6 md:gap-10">
+        <div className="flex flex-col items-center gap-8 sm:gap-10">
+          <div className="grid w-full max-w-3xl grid-cols-3 items-start justify-items-center gap-2 sm:flex sm:items-center sm:justify-center sm:gap-6 md:gap-10">
             <CountdownUnit value={timeLeft.days} label="Days" />
             <span
               aria-hidden="true"
-              className="hidden h-16 w-px bg-white/15 md:block"
+              className="hidden h-16 w-px bg-white/15 sm:block"
             />
             <CountdownUnit value={timeLeft.hours} label="Hours" />
             <span
               aria-hidden="true"
-              className="hidden h-16 w-px bg-white/15 md:block"
+              className="hidden h-16 w-px bg-white/15 sm:block"
             />
             <CountdownUnit value={timeLeft.minutes} label="Mins" />
           </div>

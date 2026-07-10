@@ -27,27 +27,27 @@ export function NickOfTimeFinalCta() {
         </Reveal>
 
         <Reveal variants={wipeReveal} duration={1} delay={0.05} amount={0}>
-          <h2 className="font-display text-[2.5rem] font-bold leading-[1.06] tracking-tight text-balance sm:text-[3.25rem] md:text-[4rem]">
+          <h2 className="font-display text-[2.25rem] font-bold leading-[1.08] tracking-tight text-balance sm:text-[3.25rem] md:text-[4rem]">
             {finalCta.title}
           </h2>
         </Reveal>
 
-        <SutureDivider tone="cream" className="my-10" />
+        <SutureDivider tone="cream" className="my-8 sm:my-10" />
 
         <Reveal
           variants={fadeUp}
           duration={0.75}
           delay={0.2}
           amount={0.4}
-          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-4"
         >
           <Button
             href={finalCta.registerHref}
-            className="bg-white text-primary shadow-none hover:bg-white/90"
+            className="w-full bg-white text-primary shadow-none hover:bg-white/90 sm:w-auto"
           >
             Register Now
           </Button>
-          <Button href={finalCta.eventsHref} variant="outline">
+          <Button href={finalCta.eventsHref} variant="outline" className="w-full sm:w-auto">
             Back to All Events
           </Button>
         </Reveal>

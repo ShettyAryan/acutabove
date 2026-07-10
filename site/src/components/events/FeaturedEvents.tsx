@@ -19,7 +19,7 @@ function EventCard({ event }: { event: FeaturedEvent }) {
       className={cn(
         "group flex h-full scroll-mt-28 flex-col overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow duration-500",
         isFlagship
-          ? "border-2 border-primary/25 shadow-xl shadow-primary/10 md:-mt-6"
+          ? "border-2 border-primary/25 shadow-xl shadow-primary/10 lg:-mt-6"
           : "border border-outline/15 hover:shadow-lg hover:shadow-primary/5"
       )}
     >
@@ -50,7 +50,7 @@ function EventCard({ event }: { event: FeaturedEvent }) {
         </span>
       </div>
 
-      <div className="flex flex-1 flex-col p-7 md:p-8">
+      <div className="flex flex-1 flex-col p-5 sm:p-7 md:p-8">
         <h2
           className={cn(
             "font-display text-2xl tracking-tight md:text-[1.75rem]",
@@ -98,7 +98,7 @@ export function FeaturedEvents() {
     <section className="bg-background py-section-sm md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <StaggerGroup
-          className="grid grid-cols-1 items-start gap-8 md:grid-cols-3 md:gap-7 lg:gap-8"
+          className="grid grid-cols-1 items-start gap-8 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
           stagger={0.14}
           amount={0.15}
         >

@@ -30,7 +30,7 @@ export function ChapterMahe() {
               ))}
             </StaggerGroup>
             <StaggerGroup
-              className="mt-12 grid grid-cols-2 gap-x-8 gap-y-8 border-t border-outline/30 pt-10 sm:flex sm:flex-wrap sm:gap-x-12"
+              className="mt-12 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-outline/30 pt-10 sm:flex sm:flex-wrap sm:gap-x-12"
               stagger={0.1}
               delay={0.05}
             >

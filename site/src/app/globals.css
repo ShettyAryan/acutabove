@@ -52,7 +52,7 @@
   /* --- Layout rhythm ---------------------------------------------------- */
   --spacing-gutter: 1.5rem;
   --spacing-edge: 1.25rem;
-  --spacing-edge-lg: 5rem;
+  --spacing-edge-lg: 3.5rem;
   --spacing-section: 7.5rem;
   --spacing-section-sm: 4.5rem;
   --container-max: 80rem;
@@ -64,12 +64,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     background-color: var(--color-surface);
     color: var(--color-ink);
     font-family: var(--font-body);
+    overflow-x: clip;
   }
 
   ::selection {

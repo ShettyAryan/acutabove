@@ -55,7 +55,7 @@ export function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-ink"
+      className="relative flex h-[100dvh] min-h-[100svh] w-full items-center justify-center overflow-hidden bg-ink"
     >
       <motion.div
         className="absolute inset-0 z-0"
@@ -84,22 +84,22 @@ export function Hero() {
 
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/45 to-black/50" />
 
-      <div className="relative z-10 flex h-full max-w-5xl flex-col items-center justify-center px-edge text-center">
-        <Reveal variants={fadeUp} duration={0.6} amount={0.6} className="mb-8">
+      <div className="relative z-10 flex h-full max-w-5xl flex-col items-center justify-center px-edge pb-20 pt-20 text-center sm:pb-16">
+        <Reveal variants={fadeUp} duration={0.6} amount={0.6} className="mb-5 sm:mb-8">
           <Link
             href="/event/nickoftime"
-            className="group flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-2 backdrop-blur-md transition-colors hover:bg-white/20"
+            className="group flex max-w-[min(100%,20rem)] items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md transition-colors hover:bg-white/20 sm:max-w-none sm:gap-3 sm:px-5"
           >
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-2.5 w-2.5 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 animate-glow-pulse rounded-full bg-white" />
             </span>
-            <span className="font-body text-[11px] uppercase tracking-[0.2em] text-white">
+            <span className="font-body text-[10px] uppercase tracking-[0.16em] text-white sm:text-[11px] sm:tracking-[0.2em]">
               Nick of Time is here
             </span>
             <ArrowRight
               size={14}
-              className="text-white transition-transform group-hover:translate-x-1"
+              className="shrink-0 text-white transition-transform group-hover:translate-x-1"
             />
           </Link>
         </Reveal>
@@ -111,7 +111,7 @@ export function Hero() {
           onMount
           className="overflow-hidden"
         >
-          <h1 className="font-display text-[3.25rem] leading-[0.98] tracking-tight drop-shadow-2xl sm:text-[4.5rem] md:text-display-xl text-[#FFDBCE]">
+          <h1 className="font-display text-[2.75rem] leading-[0.98] tracking-tight drop-shadow-2xl text-[#FFDBCE] sm:text-[4.5rem] md:text-display-xl">
             A Cut Above
           </h1>
         </Reveal>
@@ -121,9 +121,9 @@ export function Hero() {
           duration={0.7}
           amount={0.6}
           delay={0.55}
-          className="mx-auto mt-6 max-w-2xl"
+          className="mx-auto mt-5 max-w-2xl sm:mt-6"
         >
-          <p className="text-body-lg text-balance text-white/90 drop-shadow-lg">
+          <p className="text-base text-balance leading-relaxed text-white/90 drop-shadow-lg sm:text-body-lg">
             Where precision meets purpose — the surgical society of KMC
             Mangalore, cultivating the next generation of surgical leaders
             through excellence and innovation.
@@ -135,19 +135,19 @@ export function Hero() {
           duration={0.7}
           amount={0.6}
           delay={0.75}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+          className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4"
         >
-          <Button href="/events" icon={<ArrowRight size={16} />}>
+          <Button href="/events" icon={<ArrowRight size={16} />} className="w-full sm:w-auto">
             Explore Events
           </Button>
-          <Button href="/about" variant="outline">
+          <Button href="/about" variant="outline" className="w-full sm:w-auto">
             About the Club
           </Button>
         </Reveal>
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/50"
+        className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-white/50 sm:bottom-8"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: EASE_SIGNATURE }}
         aria-hidden="true"

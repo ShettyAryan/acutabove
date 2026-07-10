@@ -61,7 +61,7 @@ export function EventsPreview() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-3 md:gap-8">
+        <div className="grid grid-cols-1 items-start gap-10 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
           {EVENTS.map((event, i) => (
             <motion.div
               key={event.slug}
@@ -73,7 +73,7 @@ export function EventsPreview() {
                 delay: i * 0.15,
                 ease: EASE_SIGNATURE,
               }}
-              className={cn(event.flagship && "md:-mt-8")}
+              className={cn(event.flagship && "lg:-mt-8")}
             >
               <Link
                 href={

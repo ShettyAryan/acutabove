@@ -21,7 +21,7 @@ export function TeamDirectory() {
         <div
           role="tablist"
           aria-label="Team categories"
-          className="mx-auto mb-14 flex max-w-3xl flex-col gap-2 sm:flex-row sm:justify-center sm:gap-0 sm:rounded-full sm:border sm:border-outline/25 sm:bg-surface-container-low sm:p-1.5"
+          className="mx-auto mb-14 flex max-w-3xl flex-col gap-2 lg:flex-row lg:justify-center lg:gap-0 lg:rounded-full lg:border lg:border-outline/25 lg:bg-surface-container-low lg:p-1.5"
         >
           {TEAM_TABS.map((tab) => {
             const isActive = active === tab.id;
@@ -33,16 +33,16 @@ export function TeamDirectory() {
                 aria-selected={isActive}
                 onClick={() => setActive(tab.id)}
                 className={cn(
-                  "relative rounded-full px-5 py-3 font-body text-label uppercase tracking-[0.14em] transition-colors duration-300",
+                  "relative min-h-11 rounded-full px-4 py-3 font-body text-[0.65rem] uppercase tracking-[0.1em] transition-colors duration-300 sm:text-label sm:tracking-[0.14em] lg:px-5",
                   isActive
-                    ? "bg-primary text-on-primary shadow-md shadow-primary/20 sm:bg-transparent sm:text-on-primary sm:shadow-none"
-                    : "border border-outline/30 text-ink-muted hover:border-primary/40 hover:text-primary sm:border-0"
+                    ? "bg-primary text-on-primary shadow-md shadow-primary/20 lg:bg-transparent lg:text-on-primary lg:shadow-none"
+                    : "border border-outline/30 text-ink-muted hover:border-primary/40 hover:text-primary lg:border-0"
                 )}
               >
                 {isActive && (
                   <motion.span
                     layoutId="team-tab-pill"
-                    className="absolute inset-0 hidden rounded-full bg-primary shadow-md shadow-primary/20 sm:block"
+                    className="absolute inset-0 hidden rounded-full bg-primary shadow-md shadow-primary/20 lg:block"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
@@ -78,10 +78,10 @@ export function TeamDirectory() {
             ) : (
               <div
                 className={cn(
-                  "grid grid-cols-1 gap-7 sm:grid-cols-2 lg:gap-8",
+                  "grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:gap-8",
                   active === "leadership"
-                    ? "md:grid-cols-3 lg:grid-cols-5"
-                    : "md:grid-cols-3 lg:grid-cols-4"
+                    ? "md:grid-cols-3 xl:grid-cols-5"
+                    : "md:grid-cols-3 xl:grid-cols-4"
                 )}
               >
                 {members.map((member, i) => (

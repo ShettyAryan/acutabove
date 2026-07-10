@@ -115,7 +115,7 @@ export const CHAPTER_CUT_ABOVE = {
     { value: "2018", label: "Year Established" },
   ],
   logo: {
-    src: "/images/cutabove-logo.png",
+    src: "/android-chrome-512x512.png",
     alt: "A Cut Above society emblem",
   },
   ctas: [

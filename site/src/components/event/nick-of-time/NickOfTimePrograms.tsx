@@ -70,7 +70,7 @@ export function NickOfTimePrograms() {
     >
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <Reveal amount={0.3} className="mx-auto mb-16 max-w-2xl text-center">
-          <h2 className="font-display text-[2.5rem] font-bold leading-[1.08] tracking-tight text-primary sm:text-[3rem] md:text-[3.5rem]">
+          <h2 className="font-display text-[2.25rem] font-bold leading-[1.1] tracking-tight text-primary sm:text-[3rem] md:text-[3.5rem]">
             {programs.title}{" "}
             <span className="italic">{programs.titleEmphasis}</span>
           </h2>

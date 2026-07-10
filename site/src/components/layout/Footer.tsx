@@ -24,8 +24,7 @@ const SOCIALS = [
   { label: "Listen to our sessions", icon: Rss, href: "/gallery" },
 ];
 
-const LOGO_SRC =
-  "/images/cutabove-logo.png";
+const LOGO_SRC = "/android-chrome-192x192.png";
 
 export function Footer() {
   return (
@@ -34,7 +33,7 @@ export function Footer() {
         <Reveal
           variants={fadeIn}
           amount={0.15}
-          className="mb-16 grid grid-cols-1 gap-14 md:grid-cols-4"
+          className="mb-16 grid grid-cols-1 gap-12 sm:gap-14 md:grid-cols-2 lg:grid-cols-4"
         >
           <div>
             <Link href="/" className="mb-6 flex items-center gap-3">
@@ -86,12 +85,12 @@ export function Footer() {
         </Reveal>
 
         <div className="flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 text-[11px] uppercase tracking-widest text-white/45 md:flex-row">
-          <p>© {new Date().getFullYear()} KMC Mangalore Surgical Society.</p>
-          <div className="flex gap-8">
-            <Link href="/contact" className="transition-opacity hover:opacity-100 hover:text-white">
+          <p className="text-center">© {new Date().getFullYear()} KMC Mangalore Surgical Society.</p>
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+            <Link href="/contact" className="py-1 transition-opacity hover:opacity-100 hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/contact" className="transition-opacity hover:opacity-100 hover:text-white">
+            <Link href="/contact" className="py-1 transition-opacity hover:opacity-100 hover:text-white">
               Terms of Use
             </Link>
           </div>
@@ -118,7 +117,7 @@ function FooterColumn({
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-white/80 transition-colors hover:text-white"
+              className="inline-flex min-h-10 items-center text-white/80 transition-colors hover:text-white"
             >
               {link.label}
             </Link>

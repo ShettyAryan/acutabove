@@ -37,7 +37,7 @@ export function Button({
   ...rest
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 font-body text-label uppercase transition-colors duration-300",
+    "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-body text-label uppercase transition-colors duration-300 sm:px-9 sm:py-4",
     VARIANT_CLASSES[variant],
     className
   );

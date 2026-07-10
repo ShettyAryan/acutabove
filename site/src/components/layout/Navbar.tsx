@@ -17,8 +17,7 @@ const NAV_LINKS = [
   { label: "Gallery", href: "/gallery" },
 ];
 
-const LOGO_SRC =
-  "/images/cutabove-logo.png";
+const LOGO_SRC = "/android-chrome-192x192.png";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -33,7 +32,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const transparent = hasDarkHero && !scrolled;
+  const transparent = hasDarkHero && !scrolled && !menuOpen;
 
   useEffect(() => {
     if (!hasDarkHero) return;
@@ -50,13 +49,26 @@ export function Navbar() {
     };
   }, [menuOpen]);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   return (
     <header
       className={cn(
         "fixed top-0 z-100 w-full transition-all duration-500",
         transparent
-          ? "h-24 border-b border-white/10 bg-transparent"
-          : "h-20 border-b border-outline/10 bg-surface/90 shadow-sm backdrop-blur-md"
+          ? "h-20 border-b border-white/10 bg-transparent sm:h-24"
+          : "h-20 border-b border-outline/10 bg-surface/95 shadow-sm backdrop-blur-md"
       )}
     >
       <a
@@ -66,22 +78,22 @@ export function Navbar() {
         Skip to content
       </a>
 
-      <div className="mx-auto flex h-full w-full max-w-container-max items-center justify-between px-edge md:px-edge-lg">
-        <Link href="/" className="flex flex-1 items-center gap-3">
+      <div className="mx-auto flex h-full w-full max-w-container-max items-center justify-between gap-3 px-edge lg:px-edge-lg">
+        <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
           <Image
             src={LOGO_SRC}
             alt="A Cut Above emblem"
             width={50}
             height={50}
             className={cn(
-              "h-11 w-11 rounded-full border object-cover transition-colors",
+              "h-10 w-10 shrink-0 rounded-full border object-cover transition-colors sm:h-11 sm:w-11",
               transparent ? "border-white/20" : "border-primary/15"
             )}
             priority
           />
           <span
             className={cn(
-              "font-display text-2xl tracking-tight transition-colors",
+              "truncate font-display text-xl tracking-tight transition-colors sm:text-2xl",
               transparent ? "text-white" : "text-primary"
             )}
           >
@@ -91,7 +103,7 @@ export function Navbar() {
 
         <nav
           aria-label="Primary"
-          className="hidden flex-1 items-center justify-center gap-10 md:flex"
+          className="hidden flex-1 items-center justify-center gap-6 lg:flex lg:gap-10"
         >
           {NAV_LINKS.map((link) => {
             const active = pathname === link.href;
@@ -117,7 +129,7 @@ export function Navbar() {
           })}
         </nav>
 
-        <div className="hidden flex-1 justify-end md:flex">
+        <div className="hidden flex-1 justify-end lg:flex">
           <Button href="/events" variant="tertiary" className="px-7 py-3">
             Register
           </Button>
@@ -129,7 +141,7 @@ export function Navbar() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           className={cn(
-            "flex h-10 w-10 items-center justify-center rounded-full transition-colors md:hidden",
+            "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors lg:hidden",
             transparent ? "text-white" : "text-ink"
           )}
         >
@@ -156,7 +168,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-outline/10 bg-surface md:hidden"
+            className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-outline/10 bg-surface lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-edge py-6">
               {NAV_LINKS.map((link, i) => (
@@ -170,7 +182,7 @@ export function Navbar() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={cn(
-                      "block rounded-lg px-3 py-3 font-display text-2xl transition-colors",
+                      "block rounded-lg px-3 py-3.5 font-display text-2xl transition-colors",
                       pathname === link.href
                         ? "text-primary"
                         : "text-ink hover:text-primary"

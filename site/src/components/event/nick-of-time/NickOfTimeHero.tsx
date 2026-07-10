@@ -11,7 +11,7 @@ export function NickOfTimeHero() {
   const { hero } = NICK_OF_TIME;
 
   return (
-    <section className="relative flex min-h-[72vh] items-center justify-center overflow-hidden bg-primary px-edge pb-20 pt-32 text-center md:min-h-[78vh] md:pt-40">
+    <section className="relative flex min-h-[min(72vh,100dvh)] items-center justify-center overflow-hidden bg-primary px-edge pb-16 pt-28 text-center sm:pb-20 sm:pt-32 md:min-h-[78vh] md:pt-40">
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0 }}
@@ -23,12 +23,12 @@ export function NickOfTimeHero() {
         aria-hidden="true"
         animate={{ scale: [1, 1.1, 1], opacity: [0.05, 0.1, 0.05] }}
         transition={{ duration: 9, repeat: Infinity, ease: EASE_SIGNATURE }}
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/25 blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[min(36rem,90vw)] w-[min(36rem,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/25 blur-3xl"
       />
 
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal onMount variants={wipeReveal} duration={1.2} delay={0.05}>
-          <h1 className="font-display text-[2.5rem] font-bold uppercase leading-[1.02] tracking-[0.06em] text-accent text-balance sm:text-[3.25rem] md:text-[4.5rem] md:tracking-[0.08em]">
+          <h1 className="font-display text-[2rem] font-bold uppercase leading-[1.05] tracking-[0.02em] text-accent text-balance sm:text-[3.25rem] sm:tracking-[0.06em] md:text-[4.5rem] md:tracking-[0.08em]">
             {hero.title}
           </h1>
         </Reveal>
@@ -38,9 +38,9 @@ export function NickOfTimeHero() {
           variants={fadeUp}
           duration={0.85}
           delay={0.3}
-          className="mx-auto mt-8 max-w-2xl"
+          className="mx-auto mt-6 max-w-2xl sm:mt-8"
         >
-          <p className="text-body-lg leading-relaxed text-white/85">
+          <p className="text-base leading-relaxed text-white/85 sm:text-body-lg">
             {hero.subtitle}
           </p>
         </Reveal>
@@ -50,12 +50,12 @@ export function NickOfTimeHero() {
           variants={fadeUp}
           duration={0.75}
           delay={0.5}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-4"
         >
-          <Button href={hero.registerHref} variant="tertiary">
+          <Button href={hero.registerHref} variant="tertiary" className="w-full sm:w-auto">
             Register Now
           </Button>
-          <Button href={hero.scheduleHref} variant="outline">
+          <Button href={hero.scheduleHref} variant="outline" className="w-full sm:w-auto">
             Schedule
           </Button>
         </Reveal>

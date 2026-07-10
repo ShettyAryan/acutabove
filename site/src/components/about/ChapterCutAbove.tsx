@@ -57,7 +57,7 @@ export function ChapterCutAbove() {
               ))}
             </StaggerGroup>
             <StaggerGroup
-              className="mt-10 flex gap-12 border-t border-white/15 pt-8"
+              className="mt-10 flex flex-wrap gap-8 border-t border-white/15 pt-8 sm:gap-12"
               stagger={0.12}
               delay={0.05}
             >

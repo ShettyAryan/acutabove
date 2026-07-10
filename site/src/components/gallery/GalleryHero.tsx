@@ -9,7 +9,7 @@ import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 
 export function GalleryHero() {
   return (
-    <section className="relative flex min-h-[52vh] items-center justify-center overflow-hidden bg-primary px-edge pb-16 pt-32 text-center md:min-h-[56vh] md:pt-40">
+    <section className="relative flex min-h-[min(52vh,100dvh)] items-center justify-center overflow-hidden bg-primary px-edge pb-14 pt-28 text-center sm:pb-16 sm:pt-32 md:min-h-[56vh] md:pt-40">
       <motion.div
         aria-hidden="true"
         initial={{ opacity: 0 }}
@@ -32,7 +32,7 @@ export function GalleryHero() {
         </Reveal>
 
         <Reveal onMount variants={wipeReveal} duration={1.1} delay={0.1}>
-          <h1 className="font-display text-[2.75rem] leading-[1.02] tracking-tight text-white text-balance sm:text-[3.5rem] md:text-[4rem]">
+          <h1 className="font-display text-[2.25rem] leading-[1.05] tracking-tight text-white text-balance sm:text-[3.5rem] md:text-[4rem]">
             {GALLERY_HERO.title}
           </h1>
         </Reveal>
