@@ -2,25 +2,28 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EventSubPage } from "@/components/event/nick-of-time/EventSubPage";
 import {
-  getProgramBySlug,
-  NICK_OF_TIME_PROGRAMS,
-} from "@/lib/nick-of-time-content";
+  getNickOfTimeProgramBySlug,
+  getNickOfTimeProgramSlugs,
+} from "@/lib/cms/nick-of-time";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return NICK_OF_TIME_PROGRAMS.map((program) => ({
-    slug: program.slug,
-  }));
+export const dynamic = "force-dynamic";
+
+export async function generateStaticParams() {
+  const slugs = await getNickOfTimeProgramSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
+
+export const dynamicParams = true;
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const program = getProgramBySlug(slug);
+  const program = await getNickOfTimeProgramBySlug(slug);
   if (!program) return { title: "Programme" };
 
   return {
@@ -31,7 +34,7 @@ export async function generateMetadata({
 
 export default async function NickOfTimeProgramPage({ params }: PageProps) {
   const { slug } = await params;
-  const program = getProgramBySlug(slug);
+  const program = await getNickOfTimeProgramBySlug(slug);
 
   if (!program) notFound();
 

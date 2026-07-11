@@ -5,15 +5,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { TeamMemberCard } from "@/components/team/TeamMemberCard";
 import {
   TEAM_TABS,
-  getTeamMembers,
+  type TeamMember,
   type TeamTab,
 } from "@/lib/team-content";
 import { cn } from "@/lib/utils";
 import { EASE_SIGNATURE, fadeUp } from "@/lib/motion";
 
-export function TeamDirectory() {
+type TeamDirectoryProps = {
+  membersByTab: Record<TeamTab, TeamMember[]>;
+};
+
+export function TeamDirectory({ membersByTab }: TeamDirectoryProps) {
   const [active, setActive] = useState<TeamTab>("leadership");
-  const members = getTeamMembers(active);
+  const members = membersByTab[active] ?? [];
 
   return (
     <section className="bg-background py-section-sm md:py-section">

@@ -5,6 +5,9 @@ import { NickOfTimeHeritage } from "@/components/event/nick-of-time/NickOfTimeHe
 import { NickOfTimeCountdown } from "@/components/event/nick-of-time/NickOfTimeCountdown";
 import { NickOfTimePrograms } from "@/components/event/nick-of-time/NickOfTimePrograms";
 import { NickOfTimeFinalCta } from "@/components/event/nick-of-time/NickOfTimeFinalCta";
+import { getNickOfTimePrograms } from "@/lib/cms/nick-of-time";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Nick of Time",
@@ -12,14 +15,16 @@ export const metadata: Metadata = {
     "An academic surgical fest for undergraduate students — workshops, lectures, OSCE simulation, poster and paper presentations, ideathon, and surgical quiz by KMC Mangalore.",
 };
 
-export default function NickOfTimePage() {
+export default async function NickOfTimePage() {
+  const programsList = await getNickOfTimePrograms();
+
   return (
     <>
       <NickOfTimeHero />
       <NickOfTimeAbout />
       <NickOfTimeHeritage />
       <NickOfTimeCountdown />
-      <NickOfTimePrograms />
+      <NickOfTimePrograms programsList={programsList} />
       <NickOfTimeFinalCta />
     </>
   );

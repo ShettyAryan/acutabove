@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 
 const playfair = Playfair_Display({
@@ -68,13 +66,7 @@ export default function RootLayout({
         className="flex min-h-screen flex-col font-body text-ink antialiased"
         suppressHydrationWarning
       >
-        <MotionProvider>
-          <Navbar />
-          <main id="main-content" className="flex-1">
-            {children}
-          </main>
-          <Footer />
-        </MotionProvider>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

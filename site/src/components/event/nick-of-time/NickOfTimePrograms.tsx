@@ -8,14 +8,12 @@ import { Reveal } from "@/components/ui/Reveal";
 import { StaggerGroup, StaggerItem } from "@/components/about/StaggerGroup";
 import {
   NICK_OF_TIME,
-  NICK_OF_TIME_PROGRAMS,
   programPath,
+  type NickOfTimeProgram,
 } from "@/lib/nick-of-time-content";
 import { EASE_SIGNATURE, scaleIn } from "@/lib/motion";
 
-function ProgramCard({ slug }: { slug: string }) {
-  const program = NICK_OF_TIME_PROGRAMS.find((p) => p.slug === slug)!;
-
+function ProgramCard({ program }: { program: NickOfTimeProgram }) {
   return (
     <StaggerItem variants={scaleIn} duration={0.85}>
       <Link
@@ -60,7 +58,11 @@ function ProgramCard({ slug }: { slug: string }) {
   );
 }
 
-export function NickOfTimePrograms() {
+type NickOfTimeProgramsProps = {
+  programsList: NickOfTimeProgram[];
+};
+
+export function NickOfTimePrograms({ programsList }: NickOfTimeProgramsProps) {
   const { programs } = NICK_OF_TIME;
 
   return (
@@ -80,9 +82,7 @@ export function NickOfTimePrograms() {
         </Reveal>
 
         {programs.groups.map((group) => {
-          const items = NICK_OF_TIME_PROGRAMS.filter(
-            (p) => p.group === group.id
-          );
+          const items = programsList.filter((p) => p.group === group.id);
           return (
             <div key={group.id} className="mb-16 last:mb-0">
               <Reveal amount={0.3} className="mb-8">
@@ -102,7 +102,7 @@ export function NickOfTimePrograms() {
                 amount={0.1}
               >
                 {items.map((item) => (
-                  <ProgramCard key={item.slug} slug={item.slug} />
+                  <ProgramCard key={item.slug} program={item} />
                 ))}
               </StaggerGroup>
             </div>
