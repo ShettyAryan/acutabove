@@ -7,8 +7,13 @@ import { SutureDivider } from "@/components/layout/SutureDivider";
 import { NICK_OF_TIME } from "@/lib/nick-of-time-content";
 import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 
-export function NickOfTimeFinalCta() {
+export function NickOfTimeFinalCta({
+  registerHref,
+}: {
+  registerHref?: string;
+}) {
   const { finalCta } = NICK_OF_TIME;
+  const registerUrl = registerHref ?? finalCta.registerHref;
 
   return (
     <section className="relative overflow-hidden bg-primary px-edge py-section-sm text-center text-white md:py-section">
@@ -42,7 +47,7 @@ export function NickOfTimeFinalCta() {
           className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-4"
         >
           <Button
-            href={finalCta.registerHref}
+            href={registerUrl}
             className="w-full bg-white text-primary shadow-none hover:bg-white/90 sm:w-auto"
           >
             Register Now

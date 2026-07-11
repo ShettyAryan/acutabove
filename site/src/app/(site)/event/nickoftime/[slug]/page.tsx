@@ -5,6 +5,7 @@ import {
   getNickOfTimeProgramBySlug,
   getNickOfTimeProgramSlugs,
 } from "@/lib/cms/nick-of-time";
+import { getRegisterFormUrl } from "@/lib/cms/site-settings";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -34,9 +35,12 @@ export async function generateMetadata({
 
 export default async function NickOfTimeProgramPage({ params }: PageProps) {
   const { slug } = await params;
-  const program = await getNickOfTimeProgramBySlug(slug);
+  const [program, registerHref] = await Promise.all([
+    getNickOfTimeProgramBySlug(slug),
+    getRegisterFormUrl(),
+  ]);
 
   if (!program) notFound();
 
-  return <EventSubPage program={program} />;
+  return <EventSubPage program={program} registerHref={registerHref} />;
 }

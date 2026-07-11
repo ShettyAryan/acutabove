@@ -18,6 +18,12 @@ export const CONTENT_SOURCE_QUERY = defineQuery(`
   }
 `);
 
+export const SITE_SETTINGS_QUERY = defineQuery(`
+  *[_id == "siteSettings"][0]{
+    registerFormUrl
+  }
+`);
+
 export const NICK_OF_TIME_PROGRAMS_QUERY = defineQuery(`
   *[_type == "nickOfTimeProgram"] | order(order asc) {
     _id,

@@ -23,7 +23,7 @@ export const NICK_OF_TIME = {
     title: "Nick of Time",
     subtitle:
       "An academic fest designed to enhance confidence, prepare undergraduates for final year exams, and bridge the gap between theory and the operating theatre.",
-    registerHref: "/contact",
+    registerHref: "https://forms.gle/nBqRZntG2CLn7RPb7",
     brochureHref:
       "https://drive.google.com/file/d/1Og8R6VZIAxdKXAwM6VIyvbsVjC3hd8QH/view?usp=sharing",
   },
@@ -77,7 +77,7 @@ export const NICK_OF_TIME = {
   finalCta: {
     eyebrow: "The Final Countdown",
     title: "Ready to be Exam-Ready?",
-    registerHref: "/contact",
+    registerHref: "https://forms.gle/nBqRZntG2CLn7RPb7",
     eventsHref: "/events",
   },
 };

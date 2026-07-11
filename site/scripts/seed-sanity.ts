@@ -146,6 +146,15 @@ async function seedPrograms() {
   }
 }
 
+async function seedSiteSettings() {
+  await client.createOrReplace({
+    _id: "siteSettings",
+    _type: "siteSettings",
+    registerFormUrl: "https://forms.gle/nBqRZntG2CLn7RPb7",
+  });
+  console.log("  site settings: register form URL");
+}
+
 async function seedContentSourceFlags() {
   await client.createOrReplace({
     _id: "contentSource",
@@ -162,6 +171,8 @@ async function main() {
   await seedTeam();
   console.log("Nick of Time programmes:");
   await seedPrograms();
+  console.log("Site settings:");
+  await seedSiteSettings();
   console.log("Flags:");
   await seedContentSourceFlags();
   console.log("Done. Open /studio to edit.");

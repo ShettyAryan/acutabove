@@ -19,7 +19,11 @@ const NAV_LINKS = [
 
 const LOGO_SRC = "/android-chrome-192x192.png";
 
-export function Navbar() {
+export function Navbar({
+  registerHref = "https://forms.gle/nBqRZntG2CLn7RPb7",
+}: {
+  registerHref?: string;
+}) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const isAbout = pathname === "/about";
@@ -130,7 +134,7 @@ export function Navbar() {
         </nav>
 
         <div className="hidden flex-1 justify-end lg:flex">
-          <Button href="/events" variant="tertiary" className="px-7 py-3">
+          <Button href={registerHref} variant="tertiary" className="px-7 py-3">
             Register
           </Button>
         </div>
@@ -199,7 +203,7 @@ export function Navbar() {
                 className="mt-3"
               >
                 <Button
-                  href="/events"
+                  href={registerHref}
                   variant="tertiary"
                   className="w-full"
                   onClick={() => setMenuOpen(false)}

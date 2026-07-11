@@ -43,5 +43,6 @@ They only need `/studio` — no code access required.
 
 - Team roster (all three tabs): add, edit, delete, reorder, photos
 - Nick of Time programmes: add, edit, delete (creates/removes `/event/nickoftime/[slug]` pages)
+- **Site settings → Register form URL**: one link used by every Register / Register Now button (navbar, Nick of Time hero/CTA, programme pages)
 
 Hero copy and other site pages stay in code for now.

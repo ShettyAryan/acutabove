@@ -17,9 +17,13 @@ import { EASE_SIGNATURE, fadeUp, scaleIn, wipeReveal } from "@/lib/motion";
 
 type EventSubPageProps = {
   program: NickOfTimeProgram;
+  registerHref?: string;
 };
 
-export function EventSubPage({ program }: EventSubPageProps) {
+export function EventSubPage({
+  program,
+  registerHref = "https://forms.gle/nBqRZntG2CLn7RPb7",
+}: EventSubPageProps) {
   const related = getProgramsByGroup(program.group).filter(
     (p) => p.slug !== program.slug
   );
@@ -121,7 +125,7 @@ export function EventSubPage({ program }: EventSubPageProps) {
               )}
 
               <Reveal amount={0.4} className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Button href="/contact">{program.cta}</Button>
+                <Button href={registerHref}>{program.cta}</Button>
                 <Button
                   href={NICK_OF_TIME.path}
                   variant="ghost"

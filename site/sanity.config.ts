@@ -19,6 +19,15 @@ export default defineConfig({
           .title("Content")
           .items([
             S.listItem()
+              .title("Site settings")
+              .child(
+                S.document()
+                  .schemaType("siteSettings")
+                  .documentId("siteSettings")
+                  .title("Site settings")
+              ),
+            S.divider(),
+            S.listItem()
               .title("Team members")
               .schemaType("teamMember")
               .child(

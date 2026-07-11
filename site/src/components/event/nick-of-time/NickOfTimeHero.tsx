@@ -1,14 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { NICK_OF_TIME } from "@/lib/nick-of-time-content";
 import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 
-export function NickOfTimeHero() {
+export function NickOfTimeHero({
+  registerHref,
+}: {
+  registerHref?: string;
+}) {
   const { hero } = NICK_OF_TIME;
+  const registerUrl = registerHref ?? hero.registerHref;
 
   return (
     <section className="relative flex min-h-[min(72vh,100dvh)] items-center justify-center overflow-hidden bg-primary px-edge pb-16 pt-28 text-center sm:pb-20 sm:pt-32 md:min-h-[78vh] md:pt-40">
@@ -52,7 +56,7 @@ export function NickOfTimeHero() {
           delay={0.5}
           className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-4"
         >
-          <Button href={hero.registerHref} variant="tertiary" className="w-full sm:w-auto">
+          <Button href={registerUrl} variant="tertiary" className="w-full sm:w-auto">
             Register Now
           </Button>
           <Button href={hero.brochureHref} variant="outline" className="w-full sm:w-auto">
