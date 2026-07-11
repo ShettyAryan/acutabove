@@ -17,7 +17,7 @@ export type NickOfTimeProgram = {
 export const NICK_OF_TIME = {
   slug: "nickoftime",
   path: "/event/nickoftime",
-  eventDate: "2026-02-14T09:00:00+05:30",
+  eventDate: "2026-11-26T09:00:00+05:30",
 
   hero: {
     title: "Nick of Time",

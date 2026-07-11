@@ -29,33 +29,27 @@ function pad(n: number) {
 function CountdownUnit({
   value,
   label,
-  large = false,
 }: {
   value: number;
   label: string;
-  large?: boolean;
 }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex min-w-0 flex-1 flex-col items-center sm:flex-none">
       <motion.span
         key={value}
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: EASE_SIGNATURE }}
-        className={`font-display tabular-nums tracking-tight text-white ${
-          large
-            ? "text-4xl sm:text-5xl md:text-7xl"
-            : "text-3xl sm:text-4xl md:text-6xl"
-        }`}
+        className="font-display text-[1.65rem] tabular-nums tracking-tight text-white sm:text-4xl md:text-6xl"
       >
         {pad(value)}
       </motion.span>
-      <span className="mt-2 font-body text-[10px] uppercase tracking-[0.12em] text-white/50 sm:mt-3 sm:tracking-[0.28em]">
+      <span className="mt-2 font-body text-[9px] uppercase tracking-[0.1em] text-white/50 sm:mt-3 sm:text-[10px] sm:tracking-[0.28em]">
         {label}
       </span>
       <span
         aria-hidden="true"
-        className="mt-2 h-0.5 w-6 rounded-full bg-tertiary sm:mt-3 sm:w-8"
+        className="mt-2 h-0.5 w-5 rounded-full bg-tertiary sm:mt-3 sm:w-8"
       />
     </div>
   );
@@ -85,21 +79,23 @@ export function NickOfTimeCountdown() {
           {NICK_OF_TIME.countdown.eyebrow}
         </motion.p>
 
-        <div className="flex flex-col items-center gap-8 sm:gap-10">
-          <div className="grid w-full max-w-3xl grid-cols-3 items-start justify-items-center gap-2 sm:flex sm:items-center sm:justify-center sm:gap-6 md:gap-10">
-            <CountdownUnit value={timeLeft.days} label="Days" />
-            <span
-              aria-hidden="true"
-              className="hidden h-16 w-px bg-white/15 sm:block"
-            />
-            <CountdownUnit value={timeLeft.hours} label="Hours" />
-            <span
-              aria-hidden="true"
-              className="hidden h-16 w-px bg-white/15 sm:block"
-            />
-            <CountdownUnit value={timeLeft.minutes} label="Mins" />
-          </div>
-          <CountdownUnit value={timeLeft.seconds} label="Secs" large />
+        <div className="mx-auto flex w-full max-w-3xl items-start justify-between gap-1 sm:justify-center sm:gap-6 md:gap-10">
+          <CountdownUnit value={timeLeft.days} label="Days" />
+          <span
+            aria-hidden="true"
+            className="mt-2 hidden h-12 w-px shrink-0 bg-white/15 sm:mt-3 sm:block sm:h-16"
+          />
+          <CountdownUnit value={timeLeft.hours} label="Hours" />
+          <span
+            aria-hidden="true"
+            className="mt-2 hidden h-12 w-px shrink-0 bg-white/15 sm:mt-3 sm:block sm:h-16"
+          />
+          <CountdownUnit value={timeLeft.minutes} label="Mins" />
+          <span
+            aria-hidden="true"
+            className="mt-2 hidden h-12 w-px shrink-0 bg-white/15 sm:mt-3 sm:block sm:h-16"
+          />
+          <CountdownUnit value={timeLeft.seconds} label="Secs" />
         </div>
       </div>
     </section>
