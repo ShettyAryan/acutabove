@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { SANITY_IMAGE_ACCEPT } from "../lib/imageAccept";
 
 export const nickOfTimeProgram = defineType({
   name: "nickOfTimeProgram",
@@ -69,7 +70,11 @@ export const nickOfTimeProgram = defineType({
       name: "image",
       title: "Image",
       type: "image",
-      options: { hotspot: true },
+      description: "Accepts JPG, JPEG, PNG, WebP, or GIF.",
+      options: {
+        hotspot: true,
+        accept: SANITY_IMAGE_ACCEPT,
+      },
       validation: (rule) => rule.required(),
     }),
     defineField({

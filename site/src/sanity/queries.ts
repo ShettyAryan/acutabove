@@ -7,7 +7,7 @@ export const TEAM_MEMBERS_QUERY = defineQuery(`
     designation,
     tab,
     order,
-    "imageUrl": image.asset->url
+    image
   }
 `);
 
@@ -32,7 +32,7 @@ export const NICK_OF_TIME_PROGRAMS_QUERY = defineQuery(`
     alt,
     cta,
     order,
-    "imageUrl": image.asset->url
+    image
   }
 `);
 
@@ -50,7 +50,7 @@ export const NICK_OF_TIME_PROGRAM_BY_SLUG_QUERY = defineQuery(`
     alt,
     cta,
     order,
-    "imageUrl": image.asset->url
+    image
   }
 `);
 

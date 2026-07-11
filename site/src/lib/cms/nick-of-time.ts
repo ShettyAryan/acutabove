@@ -5,12 +5,14 @@ import {
   NICK_OF_TIME_PROGRAMS_QUERY,
   NICK_OF_TIME_PROGRAM_BY_SLUG_QUERY,
 } from "@/sanity/queries";
+import { cmsImageUrl } from "@/lib/cms/image";
 import {
   NICK_OF_TIME_PROGRAMS,
   getProgramBySlug as getStaticProgramBySlug,
   type NickOfTimeProgram,
   type ProgramGroup,
 } from "@/lib/nick-of-time-content";
+import type { SanityImageSource } from "@sanity/image-url";
 
 type SanityProgram = {
   _id: string;
@@ -25,7 +27,7 @@ type SanityProgram = {
   alt: string;
   cta: string;
   order?: number;
-  imageUrl?: string | null;
+  image?: SanityImageSource | null;
 };
 
 type ContentSource = {
@@ -43,7 +45,7 @@ function mapProgram(doc: SanityProgram): NickOfTimeProgram {
     description: doc.description ?? [],
     bullets: doc.bullets?.length ? doc.bullets : undefined,
     theme: doc.theme || undefined,
-    image: doc.imageUrl || "/images/image1.jpeg",
+    image: cmsImageUrl(doc.image, 1200) || "/images/image1.jpeg",
     alt: doc.alt,
     cta: doc.cta,
   };

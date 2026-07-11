@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { SANITY_IMAGE_ACCEPT } from "../lib/imageAccept";
 
 export const teamMember = defineType({
   name: "teamMember",
@@ -21,7 +22,11 @@ export const teamMember = defineType({
       name: "image",
       title: "Photo",
       type: "image",
-      options: { hotspot: true },
+      description: "Accepts JPG, JPEG, PNG, WebP, or GIF.",
+      options: {
+        hotspot: true,
+        accept: SANITY_IMAGE_ACCEPT,
+      },
     }),
     defineField({
       name: "tab",

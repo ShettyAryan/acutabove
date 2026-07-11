@@ -1,6 +1,7 @@
 import { client, cmsFetchOptions } from "@/sanity/lib/client";
 import { isSanityConfigured } from "@/sanity/env";
 import { CONTENT_SOURCE_QUERY, TEAM_MEMBERS_QUERY } from "@/sanity/queries";
+import { cmsImageUrl } from "@/lib/cms/image";
 import {
   CUT_ABOVE_TEAM,
   DEPARTMENT_OF_SURGERY,
@@ -8,6 +9,7 @@ import {
   type TeamMember,
   type TeamTab,
 } from "@/lib/team-content";
+import type { SanityImageSource } from "@sanity/image-url";
 
 const TABS: TeamTab[] = ["leadership", "surgery", "cut-above"];
 
@@ -20,7 +22,7 @@ type SanityTeamMember = {
   designation: string;
   tab: TeamTab;
   order?: number;
-  imageUrl?: string | null;
+  image?: SanityImageSource | null;
 };
 
 type ContentSource = {
@@ -33,7 +35,7 @@ function mapMember(doc: SanityTeamMember): TeamMember {
     id: doc._id,
     name: doc.name,
     designation: doc.designation,
-    image: doc.imageUrl || null,
+    image: cmsImageUrl(doc.image, 800),
   };
 }
 
