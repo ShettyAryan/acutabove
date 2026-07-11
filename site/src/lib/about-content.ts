@@ -111,7 +111,7 @@ export const CHAPTER_CUT_ABOVE = {
     "Through flagship conferences like Nick of Time, hands-on workshops, and mentorship from faculty and senior residents, we cultivate the next generation of surgical leaders who embody both technical mastery and academic curiosity.",
   ],
   stats: [
-    { value: "50+", label: "Members Joined" },
+    { value: "200+", label: "Members Joined" },
     { value: "2018", label: "Year Established" },
   ],
   logo: {

@@ -88,17 +88,17 @@ export function Hero() {
         <Reveal variants={fadeUp} duration={0.6} amount={0.6} className="mb-5 sm:mb-8">
           <Link
             href="/event/nickoftime"
-            className="group flex max-w-[min(100%,20rem)] items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md transition-colors hover:bg-white/20 sm:max-w-none sm:gap-3 sm:px-5"
+            className="group flex max-w-[min(100%,24rem)] items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md transition-colors hover:bg-white/20 sm:max-w-none sm:gap-3 sm:px-6 sm:py-3"
           >
-            <span className="relative flex h-2.5 w-2.5 shrink-0">
+            <span className="relative flex h-3 w-3 shrink-0">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 animate-glow-pulse rounded-full bg-white" />
+              <span className="relative inline-flex h-3 w-3 animate-glow-pulse rounded-full bg-white" />
             </span>
-            <span className="font-body text-[10px] uppercase tracking-[0.16em] text-white sm:text-[11px] sm:tracking-[0.2em]">
+            <span className="font-body text-sm uppercase tracking-[0.16em] text-white sm:text-base sm:tracking-[0.2em]">
               Nick of Time is here
             </span>
             <ArrowRight
-              size={14}
+              size={18}
               className="shrink-0 text-white transition-transform group-hover:translate-x-1"
             />
           </Link>

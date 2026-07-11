@@ -54,30 +54,14 @@ export const LEADERSHIP: TeamMember[] = [
 ];
 
 export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
+  // HOD
   {
-    id: "sr-1",
-    name: "Dr. Abhishek Balaji R",
-    designation: "Senior Resident",
-    image: "/images/seniorresident.jpg",
+    id: "unit-head",
+    name: "Dr. Yogesh Kumar",
+    designation: "Professor and Unit Head",
+    image: "/images/ProfessorandUnithead.jpg",
   },
-  {
-    id: "assoc-1",
-    name: "Dr. Ahris V F",
-    designation: "Associate Professor",
-    image: "/images/associateprofessor.jpg",
-  },
-  {
-    id: "sr-2",
-    name: "Dr. Akshit Srivastav",
-    designation: "Senior Resident",
-    image: "/images/seniorresident2.jpg",
-  },
-  {
-    id: "asst-1",
-    name: "Dr. Archana C S",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor.jpg",
-  },
+  // Professors
   {
     id: "prof-1",
     name: "Dr. B K Shivprasad Rai",
@@ -85,46 +69,10 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: "/images/Professor.jpg",
   },
   {
-    id: "sr-3",
-    name: "Dr. Bandi Chandrakanth Reddy",
-    designation: "Senior Resident",
-    image: "/images/seniorresident3.jpg",
-  },
-  {
-    id: "asst-2",
-    name: "Dr. Christopher Sam Thomas",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor2.jpg",
-  },
-  {
-    id: "sr-4",
-    name: "Dr. Devesvar M V",
-    designation: "Senior Resident",
-    image: "/images/seniorresident4.jpg",
-  },
-  {
-    id: "asst-3",
-    name: "Dr. Dishitha Shetty",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor3.jpg",
-  },
-  {
-    id: "sr-5",
-    name: "Dr. Govardhan G M",
-    designation: "Senior Resident",
-    image: "/images/seniorresident5.jpg",
-  },
-  {
     id: "prof-2",
     name: "Dr. Harish Rao K",
     designation: "Professor",
     image: "/images/Professor2.jpg",
-  },
-  {
-    id: "asst-4",
-    name: "Dr. Iresh Shetty",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor4.jpg",
   },
   {
     id: "prof-3",
@@ -139,40 +87,10 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: "/images/Professor4.jpg",
   },
   {
-    id: "assoc-madhav",
-    name: "Dr. Madhav Kamath M",
-    designation: "Associate Professor",
-    image: "/images/associateprofessor05.jpg",
-  },
-  {
-    id: "asst-6",
-    name: "Dr. Madhava Shenoy",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor6.jpg",
-  },
-  {
-    id: "sr-6",
-    name: "Dr. Mahima Kodgi",
-    designation: "Senior Resident",
-    image: "/images/seniorresident6.jpg",
-  },
-  {
     id: "prof-5",
     name: "Dr. Manohar V Pai",
     designation: "Professor",
     image: "/images/Professor5.jpg",
-  },
-  {
-    id: "sr-7",
-    name: "Dr. N Ganesh Nandan Verma",
-    designation: "Senior Resident",
-    image: "/images/seniorresident7.jpg",
-  },
-  {
-    id: "sr-8",
-    name: "Dr. Noel Rayen",
-    designation: "Senior Resident",
-    image: "/images/seniorresident8.jpg",
   },
   {
     id: "addl-prof",
@@ -187,6 +105,86 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: null,
   },
   {
+    id: "prof-6",
+    name: "Dr. Sunil Kumar Shetty",
+    designation: "Professor",
+    image: "/images/Professor6.jpg",
+  },
+  {
+    id: "prof-suresh",
+    name: "Dr. Suresh Pai M",
+    designation: "Professor",
+    image: null,
+  },
+  // Assistant Professors
+  {
+    id: "asst-1",
+    name: "Dr. Archana C S",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor.jpg",
+  },
+  {
+    id: "asst-2",
+    name: "Dr. Christopher Sam Thomas",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor2.jpg",
+  },
+  {
+    id: "asst-3",
+    name: "Dr. Dishitha Shetty",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor3.jpg",
+  },
+  {
+    id: "asst-4",
+    name: "Dr. Iresh Shetty",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor4.jpg",
+  },
+  {
+    id: "asst-6",
+    name: "Dr. Madhava Shenoy",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor6.jpg",
+  },
+  {
+    id: "asst-7",
+    name: "Dr. Sadhan G",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor7.jpg",
+  },
+  {
+    id: "asst-8",
+    name: "Dr. Shrikiran K",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor8.jpg",
+  },
+  {
+    id: "asst-9",
+    name: "Dr. Veeramachaneni Shanmukha Seshendra",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor9.jpg",
+  },
+  {
+    id: "asst-10",
+    name: "Dr. Venkat Tarun Dungigalla",
+    designation: "Assistant Professor",
+    image: "/images/assistantprofessor10.jpg",
+  },
+  // Associate Professors
+  {
+    id: "assoc-1",
+    name: "Dr. Ahris V F",
+    designation: "Associate Professor",
+    image: "/images/associateprofessor.jpg",
+  },
+  {
+    id: "assoc-madhav",
+    name: "Dr. Madhav Kamath M",
+    designation: "Associate Professor",
+    image: "/images/associateprofessor05.jpg",
+  },
+  {
     id: "assoc-2",
     name: "Dr. Rohan",
     designation: "Associate Professor",
@@ -197,12 +195,6 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     name: "Dr. Rupa Merlyn Mascarenhas",
     designation: "Associate Professor",
     image: "/images/associateprofessor3.jpg",
-  },
-  {
-    id: "asst-7",
-    name: "Dr. Sadhan G",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor7.jpg",
   },
   {
     id: "assoc-4",
@@ -217,10 +209,59 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: "/images/associateprofessor7.jpg",
   },
   {
-    id: "asst-8",
-    name: "Dr. Shrikiran K",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor8.jpg",
+    id: "assoc-6",
+    name: "Dr. Suraj Pai M",
+    designation: "Associate Professor",
+    image: "/images/associateprofessor6.jpg",
+  },
+  // Senior Residents
+  {
+    id: "sr-1",
+    name: "Dr. Abhishek Balaji R",
+    designation: "Senior Resident",
+    image: "/images/seniorresident.jpg",
+  },
+  {
+    id: "sr-2",
+    name: "Dr. Akshit Srivastav",
+    designation: "Senior Resident",
+    image: "/images/seniorresident2.jpg",
+  },
+  {
+    id: "sr-3",
+    name: "Dr. Bandi Chandrakanth Reddy",
+    designation: "Senior Resident",
+    image: "/images/seniorresident3.jpg",
+  },
+  {
+    id: "sr-4",
+    name: "Dr. Devesvar M V",
+    designation: "Senior Resident",
+    image: "/images/seniorresident4.jpg",
+  },
+  {
+    id: "sr-5",
+    name: "Dr. Govardhan G M",
+    designation: "Senior Resident",
+    image: "/images/seniorresident5.jpg",
+  },
+  {
+    id: "sr-6",
+    name: "Dr. Mahima Kodgi",
+    designation: "Senior Resident",
+    image: "/images/seniorresident6.jpg",
+  },
+  {
+    id: "sr-7",
+    name: "Dr. N Ganesh Nandan Verma",
+    designation: "Senior Resident",
+    image: "/images/seniorresident7.jpg",
+  },
+  {
+    id: "sr-8",
+    name: "Dr. Noel Rayen",
+    designation: "Senior Resident",
+    image: "/images/seniorresident8.jpg",
   },
   {
     id: "sr-9",
@@ -229,46 +270,10 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: "/images/seniorresident9.jpg",
   },
   {
-    id: "prof-6",
-    name: "Dr. Sunil Kumar Shetty",
-    designation: "Professor",
-    image: "/images/Professor6.jpg",
-  },
-  {
-    id: "assoc-6",
-    name: "Dr. Suraj Pai M",
-    designation: "Associate Professor",
-    image: "/images/associateprofessor6.jpg",
-  },
-  {
-    id: "prof-suresh",
-    name: "Dr. Suresh Pai M",
-    designation: "Professor",
-    image: null,
-  },
-  {
-    id: "asst-9",
-    name: "Dr. Veeramachaneni Shanmukha Seshendra",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor9.jpg",
-  },
-  {
-    id: "asst-10",
-    name: "Dr. Venkat Tarun Dungigalla",
-    designation: "Assistant Professor",
-    image: "/images/assistantprofessor10.jpg",
-  },
-  {
     id: "sr-10",
     name: "Dr. Vishwas H M",
     designation: "Senior Resident",
     image: "/images/seniorresident10.jpg",
-  },
-  {
-    id: "unit-head",
-    name: "Dr. Yogesh Kumar",
-    designation: "Professor and Unit Head",
-    image: "/images/ProfessorandUnithead.jpg",
   },
 ];
 

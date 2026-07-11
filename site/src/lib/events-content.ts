@@ -21,30 +21,6 @@ export type FeaturedEvent = {
 
 export const FEATURED_EVENTS: FeaturedEvent[] = [
   {
-    id: "axion-2026",
-    title: "AXION 2026",
-    tag: "Annual",
-    tagTone: "light",
-    description:
-      "Our premier inter-collegiate surgical quiz and workshop series designed to test the mental acuity of future surgeons.",
-    image: "/images/axion.jpeg",
-    alt: "A speaker presenting at a surgical conference podium",
-    href: "/events#axion-2026",
-    cta: "Learn More",
-  },
-  {
-    id: "erevana",
-    title: "Erevana",
-    tag: "Workshop",
-    tagTone: "light",
-    description:
-      "An intensive wet-lab experience focusing on micro-surgical techniques and advanced suturing fundamentals.",
-    image: "/images/erevna.jpg",
-    alt: "Hands in surgical gloves practicing technique in a wet lab",
-    href: "/events#erevana",
-    cta: "Learn More",
-  },
-  {
     id: "a-nick-of-time",
     title: "Nick of Time",
     tag: "New",
@@ -57,6 +33,30 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
     href: "/event/nickoftime",
     cta: "Explore Nick of Time",
     flagship: true,
+  },
+  {
+    id: "axion-2026",
+    title: "AXION 2026",
+    tag: "Annual",
+    tagTone: "light",
+    description:
+      "Our premier inter-collegiate surgical quiz and workshop series designed to test the mental acuity of future surgeons.",
+    image: "/images/axion.jpeg",
+    alt: "A speaker presenting at a surgical conference podium",
+    href: "/events#axion-2026",
+    cta: "Learn More",
+  },
+  {
+    id: "Erevna",
+    title: "Erevna",
+    tag: "Workshop",
+    tagTone: "light",
+    description:
+      "An intensive wet-lab experience focusing on micro-surgical techniques and advanced suturing fundamentals.",
+    image: "/images/erevna.jpg",
+    alt: "Hands in surgical gloves practicing technique in a wet lab",
+    href: "/events#Erevna",
+    cta: "Learn More",
   },
 ];
 
@@ -76,7 +76,7 @@ export const EVENTS_UPDATES = {
     },
     {
       label: "Email the society",
-      href: "mailto:hello@acutabove.org",
+      href: "mailto:acutabove.2526@gmail.com",
       icon: "mail" as const,
     },
   ],

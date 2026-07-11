@@ -29,8 +29,8 @@ const EVENTS = [
     flagship: true,
   },
   {
-    slug: "erevana",
-    title: "Erevana",
+    slug: "Erevna",
+    title: "Erevna",
     date: "May 2026",
     blurb: "Specialised neuro-surgical workshop series for advanced trainees.",
     image:

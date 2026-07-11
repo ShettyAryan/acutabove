@@ -55,8 +55,16 @@ export function Button({
   );
 
   if (href) {
+    const external = /^https?:\/\//i.test(href);
     return (
-      <Link href={href} className="inline-block" onClick={onClick}>
+      <Link
+        href={href}
+        className="inline-block"
+        onClick={onClick}
+        {...(external
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+      >
         {content}
       </Link>
     );

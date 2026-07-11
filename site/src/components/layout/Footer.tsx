@@ -1,8 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Users, Rss } from "lucide-react";
+import { Mail, Users, Rss} from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { fadeIn } from "@/lib/motion";
+
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://w3.org"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
+
 
 const SOCIETY_LINKS = [
   { label: "About the Club", href: "/about" },
@@ -19,7 +39,17 @@ const RESOURCE_LINKS = [
 ];
 
 const SOCIALS = [
-  { label: "Email the society", icon: Mail, href: "mailto:hello@acutabove.org" },
+  {
+    label: "Follow us on Instagram",
+    icon: InstagramIcon,
+    href: "https://www.instagram.com/Acutabovemangalore",
+    external: true,
+  },
+  {
+    label: "Email the society",
+    icon: Mail,
+    href: "mailto:acutabove.2526@gmail.com",
+  },
   { label: "Join our Event", icon: Users, href: "/events" },
   { label: "Gallery", icon: Rss, href: "/gallery" },
 ];
@@ -52,12 +82,15 @@ export function Footer() {
               The surgical society of Kasturba Medical College, Mangalore —
               dedicated to clinical excellence and academic mentorship.
             </p>
-            <div className="flex gap-4">
-              {SOCIALS.map(({ label, icon: Icon, href }) => (
+            <div className="flex flex-wrap gap-4">
+              {SOCIALS.map(({ label, icon: Icon, href, external }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
+                  {...(external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 transition-colors hover:bg-white hover:text-primary"
                 >
                   <Icon size={18} strokeWidth={1.75} />

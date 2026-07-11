@@ -24,7 +24,8 @@ export const NICK_OF_TIME = {
     subtitle:
       "An academic fest designed to enhance confidence, prepare undergraduates for final year exams, and bridge the gap between theory and the operating theatre.",
     registerHref: "/contact",
-    scheduleHref: "#programs",
+    brochureHref:
+      "https://drive.google.com/file/d/1Og8R6VZIAxdKXAwM6VIyvbsVjC3hd8QH/view?usp=sharing",
   },
 
   about: {
@@ -92,7 +93,7 @@ export const NICK_OF_TIME_PROGRAMS: NickOfTimeProgram[] = [
       "The laparoscopic simulation workshop offers participants an immersive, hands-on introduction to the fundamentals of minimally invasive surgery. Guided by experienced faculty, attendees will gain practical exposure to laparoscopic instrumentation, camera navigation, depth perception, hand-eye coordination, and essential operative techniques using simulation-based training modules.",
       "Designed to bridge the gap between theory and clinical practice.",
     ],
-    image: "/images/image3.jpeg",
+    image: "/images/image20.jpeg",
     alt: "Students practicing laparoscopic simulation techniques",
     cta: "Register for Workshop",
   },
@@ -175,7 +176,7 @@ export const NICK_OF_TIME_PROGRAMS: NickOfTimeProgram[] = [
       "Develop your scientific communication and presentation skills. Receive valuable feedback from experienced clinicians and academicians. Explore innovative ideas and recent advances in surgical sciences.",
       "Open to all MBBS students with an interest in academic research. A great platform to learn, network, and gain recognition for your work.",
     ],
-    image: "/images/axion.jpeg",
+    image: "/images/image1.jpeg",
     alt: "Students presenting research posters at a medical conference",
     cta: "Submit Poster",
   },
@@ -190,7 +191,7 @@ export const NICK_OF_TIME_PROGRAMS: NickOfTimeProgram[] = [
       "Receive constructive feedback from experienced faculty members. Learn from diverse presentations by fellow participants. Enhance your understanding of research methodology and critical appraisal.",
       "Open to MBBS students with a passion for academic excellence. An excellent opportunity to showcase your work and contribute to surgical learning.",
     ],
-    image: "/images/image4.jpeg",
+    image: "/images/image11.jpeg",
     alt: "A student presenting a research paper before faculty",
     cta: "Submit Paper",
   },
@@ -206,7 +207,7 @@ export const NICK_OF_TIME_PROGRAMS: NickOfTimeProgram[] = [
       "Present your concepts before an expert panel for evaluation. Enhance your teamwork, problem-solving, and critical thinking skills. Receive valuable feedback to refine and strengthen your ideas.",
       "Open to all MBBS students with an innovative mindset. Turn your ideas into impactful solutions for the future of healthcare.",
     ],
-    image: "/images/image2.jpeg",
+    image: "/images/image13.jpeg",
     alt: "Students collaborating on healthcare innovation ideas",
     cta: "Register Team",
   },

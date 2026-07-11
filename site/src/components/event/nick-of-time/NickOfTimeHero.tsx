@@ -55,8 +55,8 @@ export function NickOfTimeHero() {
           <Button href={hero.registerHref} variant="tertiary" className="w-full sm:w-auto">
             Register Now
           </Button>
-          <Button href={hero.scheduleHref} variant="outline" className="w-full sm:w-auto">
-            Schedule
+          <Button href={hero.brochureHref} variant="outline" className="w-full sm:w-auto">
+            Brochure
           </Button>
         </Reveal>
       </div>
