@@ -4,21 +4,25 @@ import { useEffect, useCallback, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { GALLERY_IMAGES } from "@/lib/gallery-content";
+import { GALLERY_IMAGES, type GalleryImage } from "@/lib/gallery-content";
 import { EASE_SIGNATURE, fadeUp, staggerContainer } from "@/lib/motion";
 
-export function GalleryGrid() {
+type GalleryGridProps = {
+  images?: GalleryImage[];
+};
+
+export function GalleryGrid({ images = GALLERY_IMAGES }: GalleryGridProps) {
   const [active, setActive] = useState<number | null>(null);
 
   const close = useCallback(() => setActive(null), []);
   const prev = useCallback(() => {
     setActive((i) =>
-      i === null ? null : (i - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length
+      i === null ? null : (i - 1 + images.length) % images.length
     );
-  }, []);
+  }, [images.length]);
   const next = useCallback(() => {
-    setActive((i) => (i === null ? null : (i + 1) % GALLERY_IMAGES.length));
-  }, []);
+    setActive((i) => (i === null ? null : (i + 1) % images.length));
+  }, [images.length]);
 
   useEffect(() => {
     if (active === null) return;
@@ -45,7 +49,7 @@ export function GalleryGrid() {
           variants={staggerContainer(0.04)}
           className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 xl:columns-4"
         >
-          {GALLERY_IMAGES.map((image, index) => (
+          {images.map((image, index) => (
             <motion.button
               key={image.id}
               type="button"
@@ -72,7 +76,7 @@ export function GalleryGrid() {
           <motion.div
             role="dialog"
             aria-modal="true"
-            aria-label={GALLERY_IMAGES[active].alt}
+            aria-label={images[active].alt}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -114,7 +118,7 @@ export function GalleryGrid() {
             </button>
 
             <motion.div
-              key={GALLERY_IMAGES[active].id}
+              key={images[active].id}
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
@@ -123,8 +127,8 @@ export function GalleryGrid() {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={GALLERY_IMAGES[active].src}
-                alt={GALLERY_IMAGES[active].alt}
+                src={images[active].src}
+                alt={images[active].alt}
                 width={1600}
                 height={1200}
                 sizes="90vw"
@@ -132,9 +136,9 @@ export function GalleryGrid() {
                 priority
               />
               <p className="mt-4 px-12 text-center font-body text-xs text-white/70 sm:mt-5 sm:text-sm">
-                {GALLERY_IMAGES[active].alt}
+                {images[active].alt}
                 <span className="mx-2 text-white/30">·</span>
-                {active + 1} / {GALLERY_IMAGES.length}
+                {active + 1} / {images.length}
               </p>
             </motion.div>
           </motion.div>

@@ -19,6 +19,12 @@ export type FeaturedEvent = {
   subtitle?: string;
 };
 
+export type EventGalleryImage = {
+  id: string;
+  src: string;
+  alt: string;
+};
+
 export const FEATURED_EVENTS: FeaturedEvent[] = [
   {
     id: "a-nick-of-time",
@@ -43,8 +49,8 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
       "Our premier inter-collegiate surgical quiz and workshop series designed to test the mental acuity of future surgeons.",
     image: "/images/axion.jpeg",
     alt: "A speaker presenting at a surgical conference podium",
-    href: "/events#axion-2026",
-    cta: "Learn More",
+    href: "/events/axion",
+    cta: "View Gallery",
   },
   {
     id: "Erevna",
@@ -81,3 +87,14 @@ export const EVENTS_UPDATES = {
     },
   ],
 };
+
+export const AXION_GALLERY_IMAGES: EventGalleryImage[] = [
+  { id: "axion1", src: "/images/axion1.jpeg", alt: "AXION delegates during a keynote session" },
+  { id: "axion2", src: "/images/axion2.jpeg", alt: "Participants at the AXION surgical quiz round" },
+  { id: "axion3", src: "/images/axion3.jpeg", alt: "AXION audience in an academic session" },
+  { id: "axion4", src: "/images/axion4.jpeg", alt: "Students presenting in AXION event activities" },
+  { id: "axion5", src: "/images/axion5.jpeg", alt: "Faculty and delegates at AXION conference moments" },
+  { id: "axion6", src: "/images/axion6.jpeg", alt: "Interactive AXION learning session in progress" },
+  { id: "axion7", src: "/images/axion7.jpeg", alt: "AXION participants collaborating during event rounds" },
+  { id: "axion8", src: "/images/axion8.jpeg", alt: "Closing highlights from AXION event day" },
+];
