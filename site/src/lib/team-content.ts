@@ -93,12 +93,6 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     image: "/images/Professor5.jpg",
   },
   {
-    id: "addl-prof",
-    name: "Dr. Poorna Chandra Thejeswi D S",
-    designation: "Additional Professor",
-    image: null,
-  },
-  {
     id: "prof-rahul",
     name: "Dr. Rahul R Bhat",
     designation: "Professor",
@@ -114,6 +108,12 @@ export const DEPARTMENT_OF_SURGERY: TeamMember[] = [
     id: "prof-suresh",
     name: "Dr. Suresh Pai M",
     designation: "Professor",
+    image: null,
+  },
+  {
+    id: "addl-prof",
+    name: "Dr. Poorna Chandra Thejeswi D S",
+    designation: "Additional Professor",
     image: null,
   },
   // Assistant Professors
