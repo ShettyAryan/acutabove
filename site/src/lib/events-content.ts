@@ -33,7 +33,7 @@ export const FEATURED_EVENTS: FeaturedEvent[] = [
     tagTone: "primary",
     subtitle: "The Flagship Event",
     description:
-      "Our flagship surgical conference — hands-on, high-stakes, exam-ready. Master the blade under pressure.",
+      "Our annualnational flagship surgical conference — hands-on, high-stakes, exam-ready. Master the blade under pressure.",
     image: "/images/image2.jpeg",
     alt: "A packed lecture hall during a flagship surgical conference",
     href: "/event/nickoftime",

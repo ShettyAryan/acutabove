@@ -11,7 +11,7 @@ const EVENTS = [
     slug: "axion-2026",
     title: "Axion 2026",
     date: "Feb 2026",
-    blurb: "The international undergraduate surgical meet.",
+    blurb: "The undergraduate surgical meet.",
     image:
       "/images/axion.jpeg",
     alt: "Delegates seated in an auditorium for a surgical conference",
@@ -22,7 +22,7 @@ const EVENTS = [
     title: "Nick of Time",
     date: "Registrations open",
     blurb:
-      "Our annual flagship surgical conference — the premium experience.",
+      "Our annual national flagship surgical conference — the premium experience.",
     image:
       "/images/image2.jpeg",
     alt: "Surgical instruments laid out for a live demonstration",

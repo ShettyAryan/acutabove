@@ -74,36 +74,40 @@ function bucketsFromSanity(
   return buckets;
 }
 
-/** Overlay Sanity members onto the static roster by name; append new names. */
-function unionMembers(
-  base: TeamMember[],
-  overlay: TeamMember[]
-): TeamMember[] {
-  const byName = new Map(
-    base.map((member) => [member.name.trim().toLowerCase(), member])
-  );
-  for (const member of overlay) {
-    byName.set(member.name.trim().toLowerCase(), member);
-  }
+type RankedMember = {
+  member: TeamMember;
+  order: number;
+  baseIndex: number;
+};
 
-  const seen = new Set<string>();
-  const result: TeamMember[] = [];
+/**
+ * Overlay Sanity members onto static roster by name and honor `order`.
+ * This keeps the safety fallback while making rank updates visible.
+ */
+function unionMembers(base: TeamMember[], overlayDocs: SanityTeamMember[]): TeamMember[] {
+  const byName = new Map<string, RankedMember>();
 
-  for (const member of base) {
-    const key = member.name.trim().toLowerCase();
-    result.push(byName.get(key)!);
-    seen.add(key);
-  }
+  base.forEach((member, index) => {
+    byName.set(member.name.trim().toLowerCase(), {
+      member,
+      order: index + 1000,
+      baseIndex: index,
+    });
+  });
 
-  for (const member of overlay) {
-    const key = member.name.trim().toLowerCase();
-    if (!seen.has(key)) {
-      result.push(member);
-      seen.add(key);
-    }
-  }
+  overlayDocs.forEach((doc, index) => {
+    const key = doc.name.trim().toLowerCase();
+    const existing = byName.get(key);
+    byName.set(key, {
+      member: mapMember(doc),
+      order: doc.order ?? existing?.order ?? index + 1000,
+      baseIndex: existing?.baseIndex ?? base.length + index,
+    });
+  });
 
-  return result;
+  return Array.from(byName.values())
+    .sort((a, b) => a.order - b.order || a.baseIndex - b.baseIndex)
+    .map((entry) => entry.member);
 }
 
 /**
@@ -114,12 +118,12 @@ function unionMembers(
 function mergeTeamSafe(
   docs: SanityTeamMember[]
 ): Record<TeamTab, TeamMember[]> {
-  const fromSanity = bucketsFromSanity(docs);
   const result = staticAll();
 
   for (const tab of TABS) {
-    if (fromSanity[tab].length > 0) {
-      result[tab] = unionMembers(staticMembers(tab), fromSanity[tab]);
+    const tabDocs = docs.filter((doc) => doc.tab === tab);
+    if (tabDocs.length > 0) {
+      result[tab] = unionMembers(staticMembers(tab), tabDocs);
     }
   }
 

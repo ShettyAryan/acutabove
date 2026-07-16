@@ -23,7 +23,7 @@ const HIGHLIGHTS = [
   {
     icon: Award,
     title: "Nick of Time",
-    copy: "Our premier annual flagship surgical conference.",
+    copy: "Our premier annual national flagship surgical conference.",
   },
 ];
 
