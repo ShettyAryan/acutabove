@@ -76,26 +76,29 @@ export function Navbar({
         Skip to content
       </a>
 
-      <div className="mx-auto grid h-full w-full max-w-container-max grid-cols-[1fr_auto_1fr] items-center gap-3 px-edge lg:px-edge-lg">
-        <Link href="/" className="flex min-w-0 items-center justify-self-start">
+      <div className="mx-auto flex h-full w-full max-w-container-max items-center gap-2 px-edge sm:gap-3 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] lg:gap-4 lg:px-edge-lg">
+        <Link
+          href="/"
+          className="flex min-w-0 max-w-[42%] shrink items-center justify-self-start sm:max-w-[13.5rem] lg:max-w-none"
+        >
           <Image
             src={site.maheLogo.src}
             alt={site.maheLogo.alt}
             width={794}
             height={122}
             className={cn(
-              "h-8 w-auto max-w-[min(48vw,13.5rem)] shrink-0 rounded-sm object-contain object-left sm:h-10 sm:max-w-[15.5rem]",
+              "h-7 w-auto max-w-full rounded-sm object-contain object-left sm:h-9 lg:h-10",
               transparent && "ring-1 ring-white/25"
             )}
             priority
           />
         </Link>
 
-        <div className="flex flex-col items-center justify-center gap-0.5 text-center lg:-translate-y-1 lg:gap-2.5">
+        <div className="flex min-w-0 flex-1 flex-col items-center justify-center gap-0.5 px-1 text-center lg:-translate-y-1 lg:flex-none lg:gap-2.5 lg:px-2">
           <Link
             href="/"
             className={cn(
-              "font-display text-lg leading-none tracking-tight transition-colors sm:text-xl lg:text-2xl",
+              "max-w-full truncate font-display text-base leading-none tracking-tight transition-colors sm:text-xl lg:text-2xl",
               transparent ? "text-white" : "text-primary"
             )}
           >
@@ -130,7 +133,7 @@ export function Navbar({
           </nav>
         </div>
 
-        <div className="flex items-center justify-self-end">
+        <div className="flex shrink-0 items-center justify-self-end">
           <div className="hidden lg:block">
             <Button href={registerHref} variant="tertiary" className="px-7 py-3">
               Register
