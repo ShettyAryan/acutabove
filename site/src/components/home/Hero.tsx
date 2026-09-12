@@ -85,25 +85,6 @@ export function Hero() {
       <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/70 via-black/45 to-black/50" />
 
       <div className="relative z-10 flex h-full max-w-5xl flex-col items-center justify-center px-edge pb-20 pt-20 text-center sm:pb-16">
-        <Reveal variants={fadeUp} duration={0.6} amount={0.6} className="mb-5 sm:mb-8">
-          <Link
-            href="/event/nickoftime"
-            className="group flex max-w-[min(100%,24rem)] items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md transition-colors hover:bg-white/20 sm:max-w-none sm:gap-3 sm:px-6 sm:py-3"
-          >
-            <span className="relative flex h-3 w-3 shrink-0">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
-              <span className="relative inline-flex h-3 w-3 animate-glow-pulse rounded-full bg-white" />
-            </span>
-            <span className="font-body text-sm uppercase tracking-[0.16em] text-white sm:text-base sm:tracking-[0.2em]">
-              Nick of Time is here
-            </span>
-            <ArrowRight
-              size={18}
-              className="shrink-0 text-white transition-transform group-hover:translate-x-1"
-            />
-          </Link>
-        </Reveal>
-
         <Reveal
           variants={wipeReveal}
           duration={1.1}
@@ -143,6 +124,25 @@ export function Hero() {
           <Button href="/about" variant="outline" className="w-full sm:w-auto">
             About the Club
           </Button>
+        </Reveal>
+
+        <Reveal variants={fadeUp} duration={0.6} amount={0.6} delay={0.9} className="mt-6 sm:mt-8">
+          <Link
+            href="/event/nickoftime"
+            className="group flex max-w-[min(100%,24rem)] items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 backdrop-blur-md transition-colors hover:bg-white/20 sm:max-w-none sm:gap-3 sm:px-6 sm:py-3"
+          >
+            <span className="relative flex h-3 w-3 shrink-0">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-75" />
+              <span className="relative inline-flex h-3 w-3 animate-glow-pulse rounded-full bg-white" />
+            </span>
+            <span className="font-body text-sm uppercase tracking-[0.16em] text-white sm:text-base sm:tracking-[0.2em]">
+              A Nick of Time is here
+            </span>
+            <ArrowRight
+              size={18}
+              className="shrink-0 text-white transition-transform group-hover:translate-x-1"
+            />
+          </Link>
         </Reveal>
       </div>
 

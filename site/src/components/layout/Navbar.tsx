@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { label: "Gallery", href: "/gallery" },
 ];
 
-const LOGO_SRC = "/android-chrome-192x192.png";
+const MAHE_LOGO_SRC = "/images/mahelogo.jpeg";
 
 export function Navbar({
   registerHref = "https://forms.gle/nBqRZntG2CLn7RPb7",
@@ -71,8 +71,8 @@ export function Navbar({
       className={cn(
         "fixed top-0 z-100 w-full transition-all duration-500",
         transparent
-          ? "h-20 border-b border-white/10 bg-transparent sm:h-24"
-          : "h-20 border-b border-outline/10 bg-surface/95 shadow-sm backdrop-blur-md"
+          ? "h-20 border-b border-white/10 bg-transparent lg:h-28"
+          : "h-20 border-b border-outline/10 bg-surface/95 shadow-sm backdrop-blur-md lg:h-28"
       )}
     >
       <a
@@ -82,86 +82,90 @@ export function Navbar({
         Skip to content
       </a>
 
-      <div className="mx-auto flex h-full w-full max-w-container-max items-center justify-between gap-3 px-edge lg:px-edge-lg">
-        <Link href="/" className="flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3">
+      <div className="mx-auto grid h-full w-full max-w-container-max grid-cols-[1fr_auto_1fr] items-center gap-3 px-edge lg:px-edge-lg">
+        <Link href="/" className="flex min-w-0 items-center justify-self-start">
           <Image
-            src={LOGO_SRC}
-            alt="A Cut Above emblem"
-            width={50}
-            height={50}
+            src={MAHE_LOGO_SRC}
+            alt="Kasturba Medical College Mangalore, a constituent unit of MAHE Manipal"
+            width={794}
+            height={122}
             className={cn(
-              "h-10 w-10 shrink-0 rounded-full border object-cover transition-colors sm:h-11 sm:w-11",
-              transparent ? "border-white/20" : "border-primary/15"
+              "h-8 w-auto max-w-[min(48vw,13.5rem)] shrink-0 rounded-sm object-contain object-left sm:h-10 sm:max-w-[15.5rem]",
+              transparent && "ring-1 ring-white/25"
             )}
             priority
           />
-          <span
+        </Link>
+
+        <div className="flex flex-col items-center justify-center gap-0.5 text-center lg:-translate-y-1 lg:gap-2.5">
+          <Link
+            href="/"
             className={cn(
-              "truncate font-display text-xl tracking-tight transition-colors sm:text-2xl",
+              "font-display text-lg leading-none tracking-tight transition-colors sm:text-xl lg:text-2xl",
               transparent ? "text-white" : "text-primary"
             )}
           >
             A Cut Above
-          </span>
-        </Link>
-
-        <nav
-          aria-label="Primary"
-          className="hidden flex-1 items-center justify-center gap-6 lg:flex lg:gap-10"
-        >
-          {NAV_LINKS.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={cn(
-                  "font-body text-label transition-colors",
-                  transparent
-                    ? active
-                      ? "text-white"
-                      : "text-white/75 hover:text-white"
-                    : active
-                      ? "text-primary"
-                      : "text-ink-muted hover:text-primary"
-                )}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="hidden flex-1 justify-end lg:flex">
-          <Button href={registerHref} variant="tertiary" className="px-7 py-3">
-            Register
-          </Button>
+          </Link>
+          <nav
+            aria-label="Primary"
+            className="hidden items-center justify-center gap-5 lg:flex lg:gap-8"
+          >
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "font-body text-label transition-colors",
+                    transparent
+                      ? active
+                        ? "text-white"
+                        : "text-white/75 hover:text-white"
+                      : active
+                        ? "text-primary"
+                        : "text-ink-muted hover:text-primary"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={menuOpen}
-          className={cn(
-            "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors lg:hidden",
-            transparent ? "text-white" : "text-ink"
-          )}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={menuOpen ? "close" : "open"}
-              initial={{ opacity: 0, rotate: -45 }}
-              animate={{ opacity: 1, rotate: 0 }}
-              exit={{ opacity: 0, rotate: 45 }}
-              transition={{ duration: 0.2 }}
-              className="flex"
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </motion.span>
-          </AnimatePresence>
-        </button>
+        <div className="flex items-center justify-self-end">
+          <div className="hidden lg:block">
+            <Button href={registerHref} variant="tertiary" className="px-7 py-3">
+              Register
+            </Button>
+          </div>
+          <button
+            type="button"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            className={cn(
+              "flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors lg:hidden",
+              transparent ? "text-white" : "text-ink"
+            )}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={menuOpen ? "close" : "open"}
+                initial={{ opacity: 0, rotate: -45 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 45 }}
+                transition={{ duration: 0.2 }}
+                className="flex"
+              >
+                {menuOpen ? <X size={24} /> : <Menu size={24} />}
+              </motion.span>
+            </AnimatePresence>
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
