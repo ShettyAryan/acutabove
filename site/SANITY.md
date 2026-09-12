@@ -1,4 +1,4 @@
-# Sanity CMS setup (Team + Nick of Time programmes)
+# Sanity CMS setup (full site content)
 
 ## 1. Create a Sanity project
 
@@ -8,41 +8,54 @@
 
 ## 2. Configure the site
 
-1. Copy `.env.local.example` to `.env.local`
-2. Set `NEXT_PUBLIC_SANITY_PROJECT_ID` and `NEXT_PUBLIC_SANITY_DATASET`
-3. In Sanity manage → **API** → **CORS origins**, add:
-   - `http://localhost:3000`
-   - your production URL (e.g. `https://your-domain.com`)
-4. Create an **API token** with Editor permissions → put it in `SANITY_API_WRITE_TOKEN` (seed only)
+1. Create `.env.local` in the `site` folder with:
 
-## 3. Seed existing content (do this before editing)
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=yourProjectId
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_WRITE_TOKEN=yourEditorToken
+```
+
+2. In Sanity manage → **API** → **CORS origins**, add:
+   - `http://localhost:3000`
+   - your production URL
+3. Create an **API token** with Editor permissions → `SANITY_API_WRITE_TOKEN` (seed only)
+
+## 3. Seed existing content
 
 ```bash
 npm run sanity:seed
 ```
 
-This uploads the current team roster and Nick of Time programmes into Studio.
+This uploads the current site copy and images into Studio (home, about, team, events, gallery, AXION, Nick of Time, contact, site settings, team roster, programmes).
 
-**Important:** Always run the seed **before** heavy editing. Until seed runs, the site merges Studio entries with the built-in content so a single publish cannot wipe Team tabs or Nick of Time programmes. After seed, Sanity is the full source of truth — you can freely add, edit, and delete.
+Until seed runs, the website keeps built-in fallbacks so pages never go blank.
 
 ## 4. Edit content
 
 1. Run `npm run dev`
 2. Open http://localhost:3000/studio
-3. Sign in with your Sanity account
-4. Edit **Team members** or **Nick of Time programmes** → **Publish**
+3. Edit any page document or list → **Publish**
 
-Changes appear on `/team` and `/event/nickoftime` within about a minute (ISR revalidate).
-
-## 5. Invite a non-technical editor
-
-In https://www.sanity.io/manage → project → **Members** → invite with the **Editor** role.
-They only need `/studio` — no code access required.
+Changes show on the next request (`force-dynamic`).
 
 ## What is editable
 
-- Team roster (all three tabs): add, edit, delete, reorder, photos
-- Nick of Time programmes: add, edit, delete (creates/removes `/event/nickoftime/[slug]` pages)
-- **Site settings → Register form URL**: one link used by every Register / Register Now button (navbar, Nick of Time hero/CTA, programme pages)
+| Studio section | Controls |
+|----------------|----------|
+| **Site settings** | Brand name, MAHE logo, brand logo, register URL, email, Instagram, nav links, footer |
+| **Home page** | Hero slides, title, tagline, CTAs, promo chip, highlights, about block, events preview |
+| **About page** | Hero + MAHE / KMC / Surgery / A Cut Above chapters (text + images) |
+| **Team page** | Hero copy (roster is under Team members) |
+| **Events page** | Hero, featured events, updates links |
+| **Gallery page** | Hero + gallery images |
+| **AXION page** | Hero + gallery images |
+| **Nick of Time page** | Hero, about, collage, heritage, countdown, programme section chrome, final CTA |
+| **Contact page** | Eyebrow, title, description |
+| **Team members** | Add / edit / delete / reorder / photos |
+| **Nick of Time programmes** | Add / edit / delete (creates `/event/nickoftime/[slug]` pages) |
 
-Hero copy and other site pages stay in code for now.
+## Invite editors
+
+In https://www.sanity.io/manage → project → **Members** → invite with the **Editor** role.
+They only need `/studio` — no code access required.

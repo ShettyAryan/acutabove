@@ -12,8 +12,12 @@ import {
   staggerContainer,
 } from "@/lib/motion";
 
-export function ChapterSurgery() {
-  const { overview, keyFeatures } = CHAPTER_SURGERY;
+export function ChapterSurgery({
+  data = CHAPTER_SURGERY,
+}: {
+  data?: typeof CHAPTER_SURGERY;
+}) {
+  const { overview, keyFeatures } = data;
 
   return (
     <section className="relative overflow-hidden bg-background py-section-sm md:py-section">
@@ -38,9 +42,9 @@ export function ChapterSurgery() {
 
       <div className="relative mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <ChapterHeader
-          number={CHAPTER_SURGERY.number}
-          chapter={CHAPTER_SURGERY.chapter}
-          title={CHAPTER_SURGERY.title}
+          number={data.number}
+          chapter={data.chapter}
+          title={data.title}
         />
 
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-20">

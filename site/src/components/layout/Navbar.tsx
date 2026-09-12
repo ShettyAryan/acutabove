@@ -8,21 +8,14 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
-
-const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Team", href: "/team" },
-  { label: "Events", href: "/events" },
-  { label: "Gallery", href: "/gallery" },
-];
-
-const MAHE_LOGO_SRC = "/images/mahelogo.jpeg";
+import { SITE_CONTENT, type SiteContent } from "@/lib/site-content";
 
 export function Navbar({
-  registerHref = "https://forms.gle/nBqRZntG2CLn7RPb7",
+  registerHref = SITE_CONTENT.registerFormUrl,
+  site = SITE_CONTENT,
 }: {
   registerHref?: string;
+  site?: SiteContent;
 }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -37,6 +30,7 @@ export function Navbar({
   const [menuOpen, setMenuOpen] = useState(false);
 
   const transparent = hasDarkHero && !scrolled && !menuOpen;
+  const navLinks = site.navLinks;
 
   useEffect(() => {
     if (!hasDarkHero) return;
@@ -85,8 +79,8 @@ export function Navbar({
       <div className="mx-auto grid h-full w-full max-w-container-max grid-cols-[1fr_auto_1fr] items-center gap-3 px-edge lg:px-edge-lg">
         <Link href="/" className="flex min-w-0 items-center justify-self-start">
           <Image
-            src={MAHE_LOGO_SRC}
-            alt="Kasturba Medical College Mangalore, a constituent unit of MAHE Manipal"
+            src={site.maheLogo.src}
+            alt={site.maheLogo.alt}
             width={794}
             height={122}
             className={cn(
@@ -105,13 +99,13 @@ export function Navbar({
               transparent ? "text-white" : "text-primary"
             )}
           >
-            A Cut Above
+            {site.siteName}
           </Link>
           <nav
             aria-label="Primary"
             className="hidden items-center justify-center gap-5 lg:flex lg:gap-8"
           >
-            {NAV_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const active = pathname === link.href;
               return (
                 <Link
@@ -179,7 +173,7 @@ export function Navbar({
             className="max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-outline/10 bg-surface lg:hidden"
           >
             <ul className="flex flex-col gap-1 px-edge py-6">
-              {NAV_LINKS.map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.li
                   key={link.href}
                   initial={{ opacity: 0, x: -16 }}
@@ -203,7 +197,7 @@ export function Navbar({
               <motion.li
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 * NAV_LINKS.length, duration: 0.3 }}
+                transition={{ delay: 0.05 * navLinks.length, duration: 0.3 }}
                 className="mt-3"
               >
                 <Button

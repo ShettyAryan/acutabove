@@ -60,28 +60,30 @@ function ProgramCard({ program }: { program: NickOfTimeProgram }) {
 
 type NickOfTimeProgramsProps = {
   programsList: NickOfTimeProgram[];
+  content?: typeof NICK_OF_TIME.programs;
 };
 
-export function NickOfTimePrograms({ programsList }: NickOfTimeProgramsProps) {
-  const { programs } = NICK_OF_TIME;
-
+export function NickOfTimePrograms({
+  programsList,
+  content = NICK_OF_TIME.programs,
+}: NickOfTimeProgramsProps) {
   return (
     <section
-      id={programs.id}
+      id={content.id}
       className="scroll-mt-24 overflow-hidden bg-surface py-section-sm md:py-section"
     >
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
         <Reveal amount={0.3} className="mx-auto mb-16 max-w-2xl text-center">
           <h2 className="font-display text-[2.25rem] font-bold leading-[1.1] tracking-tight text-primary sm:text-[3rem] md:text-[3.5rem]">
-            {programs.title}{" "}
-            <span className="italic">{programs.titleEmphasis}</span>
+            {content.title}{" "}
+            <span className="italic">{content.titleEmphasis}</span>
           </h2>
           <p className="mt-5 text-body-lg leading-relaxed text-ink-muted">
-            {programs.subtitle}
+            {content.subtitle}
           </p>
         </Reveal>
 
-        {programs.groups.map((group) => {
+        {content.groups.map((group) => {
           const items = programsList.filter((p) => p.group === group.id);
           return (
             <div key={group.id} className="mb-16 last:mb-0">
@@ -117,7 +119,7 @@ export function NickOfTimePrograms({ programsList }: NickOfTimeProgramsProps) {
               strokeWidth={1.5}
             />
             <p className="font-display text-xl italic leading-snug text-primary md:text-2xl">
-              &ldquo;{programs.quote}&rdquo;
+              &ldquo;{content.quote}&rdquo;
             </p>
           </div>
         </Reveal>

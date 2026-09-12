@@ -7,8 +7,13 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { ScissorCutAnimation } from "@/components/ui/ScissorCut";
 import { fadeUp, scaleIn, EASE_SIGNATURE } from "@/lib/motion";
+import { HOME_CONTENT, type HomeContent } from "@/lib/home-content";
 
-export function About() {
+export function About({
+  content = HOME_CONTENT.about,
+}: {
+  content?: HomeContent["about"];
+}) {
   return (
     <section className="overflow-hidden bg-background py-16 md:py-20">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
@@ -19,31 +24,27 @@ export function About() {
           className="mb-10 md:mb-14"
         >
           <h2 className="font-display text-headline-lg text-ink">
-            About A Cut Above
+            {content.sectionTitle}
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1  gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14">
           <Reveal className="w-full max-w-xl lg:max-w-none" amount={0.3}>
             <p className="mb-4 font-body text-label uppercase text-primary">
-              Our Philosophy
+              {content.eyebrow}
             </p>
             <h3 className="mb-5 font-display text-headline-md text-ink text-balance">
-              Mastering the art and science of the scalpel.
+              {content.headline}
             </h3>
             <p className="text-body-lg leading-relaxed text-ink-muted">
-              The KMC Mangalore Surgical Society is more than a club — it is an
-              academic sanctuary where theory meets practice. We bridge the gap
-              between classroom anatomy and real-world surgical precision,
-              fostering an environment of curiosity and disciplined practice.
-             
+              {content.body}
             </p>
             <div className="mt-6 flex w-full flex-col items-stretch gap-6">
               <Link
-                href="/about"
+                href={content.linkHref}
                 className="group inline-flex items-center gap-3 self-start border-b-2 border-primary/20 pb-2 font-body text-label uppercase text-primary transition-colors hover:border-primary"
               >
-                Read our full story
+                {content.linkLabel}
                 <ArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1.5"
@@ -63,8 +64,8 @@ export function About() {
                 className="group relative aspect-[16/10] w-full overflow-hidden rounded-xl shadow-md"
               >
                 <Image
-                  src="/images/image3.jpeg"
-                  alt="Students practicing suturing technique on a workshop bench"
+                  src={content.imageSide.src}
+                  alt={content.imageSide.alt}
                   fill
                   sizes="(min-width: 1024px) 45vw, 90vw"
                   className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
@@ -92,8 +93,8 @@ export function About() {
               className="group relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-2xl lg:mx-0 lg:max-w-none"
             >
               <Image
-                src="/images/vertical-cut.jpeg"
-                alt="A mentor guiding a resident through a surgical training session"
+                src={content.imageMain.src}
+                alt={content.imageMain.alt}
                 fill
                 sizes="(min-width: 1024px) 45vw, 90vw"
                 className="object-cover transition-transform duration-[1400ms] group-hover:scale-105"
@@ -101,12 +102,11 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-x-4 bottom-6 text-white sm:inset-x-8 sm:bottom-8">
                 <p className="font-display text-lg italic leading-snug sm:text-xl md:text-2xl">
-                  &ldquo;Precision is the difference between a technician and a
-                  surgeon.&rdquo;
+                  &ldquo;{content.quote}&rdquo;
                 </p>
                 <div className="mb-4 mt-4 h-1 w-14 bg-white" />
                 <p className="font-body text-label uppercase text-white/80">
-                  Established Excellence
+                  {content.caption}
                 </p>
               </div>
             </Reveal>

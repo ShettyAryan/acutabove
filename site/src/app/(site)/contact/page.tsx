@@ -1,14 +1,19 @@
 import type { Metadata } from "next";
 import { PagePlaceholder } from "@/components/layout/PagePlaceholder";
+import { getContactPageContent } from "@/lib/cms/pages";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = { title: "Contact" };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const content = await getContactPageContent();
+
   return (
     <PagePlaceholder
-      eyebrow="Get in Touch"
-      title="Contact Us"
-      description="A contact form and society details will live here — send the Contact design whenever it's ready."
+      eyebrow={content.eyebrow}
+      title={content.title}
+      description={content.description}
     />
   );
 }

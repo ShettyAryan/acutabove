@@ -13,13 +13,17 @@ const ICONS = {
   mail: Mail,
 } as const;
 
-export function EventsUpdates() {
+export function EventsUpdates({
+  content = EVENTS_UPDATES,
+}: {
+  content?: typeof EVENTS_UPDATES;
+}) {
   return (
     <section className="border-t border-outline/10 bg-mint py-section-sm md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge text-center md:px-edge-lg">
         <Reveal variants={fadeUp} duration={0.8} amount={0.4}>
           <p className="mx-auto max-w-2xl font-display text-xl italic leading-relaxed text-primary text-balance md:text-2xl">
-            &ldquo;{EVENTS_UPDATES.message}&rdquo;
+            &ldquo;{content.message}&rdquo;
           </p>
         </Reveal>
 
@@ -30,7 +34,7 @@ export function EventsUpdates() {
           variants={staggerContainer(0.1, 0.2)}
           className="mt-10 flex items-center justify-center gap-5"
         >
-          {EVENTS_UPDATES.socials.map(({ label, href, icon }) => {
+          {content.socials.map(({ label, href, icon }) => {
             const Icon = ICONS[icon];
             return (
               <motion.div key={label} variants={fadeUp}>

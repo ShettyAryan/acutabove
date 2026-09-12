@@ -55,8 +55,14 @@ function CountdownUnit({
   );
 }
 
-export function NickOfTimeCountdown() {
-  const targetMs = new Date(NICK_OF_TIME.eventDate).getTime();
+export function NickOfTimeCountdown({
+  eventDate = NICK_OF_TIME.eventDate,
+  content = NICK_OF_TIME.countdown,
+}: {
+  eventDate?: string;
+  content?: typeof NICK_OF_TIME.countdown;
+}) {
+  const targetMs = new Date(eventDate).getTime();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(() =>
     getTimeLeft(targetMs)
   );
@@ -76,7 +82,7 @@ export function NickOfTimeCountdown() {
           transition={{ duration: 0.7, ease: EASE_SIGNATURE }}
           className="mb-12 text-center font-body text-label uppercase tracking-[0.28em] text-white/55"
         >
-          {NICK_OF_TIME.countdown.eyebrow}
+          {content.eyebrow}
         </motion.p>
 
         <div className="mx-auto flex w-full max-w-3xl items-start justify-between gap-1 sm:justify-center sm:gap-6 md:gap-10">

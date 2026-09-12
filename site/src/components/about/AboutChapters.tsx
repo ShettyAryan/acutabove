@@ -8,6 +8,14 @@ import { ChapterSurgery } from "@/components/about/ChapterSurgery";
 import { ChapterCutAbove } from "@/components/about/ChapterCutAbove";
 import { cn } from "@/lib/utils";
 import { EASE_SIGNATURE } from "@/lib/motion";
+import type { AboutContent } from "@/lib/cms/about";
+import {
+  ABOUT_HERO,
+  CHAPTER_CUT_ABOVE,
+  CHAPTER_KMC,
+  CHAPTER_MAHE,
+  CHAPTER_SURGERY,
+} from "@/lib/about-content";
 
 type AboutChapterTab = "mahe" | "kmc" | "surgery" | "cut-above";
 
@@ -18,7 +26,19 @@ const CHAPTER_TABS: { id: AboutChapterTab; label: string; number: string }[] = [
   { id: "cut-above", label: "A Cut Above", number: "04" },
 ];
 
-export function AboutChapters() {
+const DEFAULT_ABOUT: AboutContent = {
+  hero: ABOUT_HERO,
+  chapterMahe: CHAPTER_MAHE,
+  chapterKmc: CHAPTER_KMC,
+  chapterSurgery: CHAPTER_SURGERY,
+  chapterCutAbove: CHAPTER_CUT_ABOVE,
+};
+
+export function AboutChapters({
+  content = DEFAULT_ABOUT,
+}: {
+  content?: AboutContent;
+}) {
   const [active, setActive] = useState<AboutChapterTab>("mahe");
 
   return (
@@ -75,10 +95,14 @@ export function AboutChapters() {
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.4, ease: EASE_SIGNATURE }}
         >
-          {active === "mahe" && <ChapterMahe />}
-          {active === "kmc" && <ChapterKmc />}
-          {active === "surgery" && <ChapterSurgery />}
-          {active === "cut-above" && <ChapterCutAbove />}
+          {active === "mahe" && <ChapterMahe data={content.chapterMahe} />}
+          {active === "kmc" && <ChapterKmc data={content.chapterKmc} />}
+          {active === "surgery" && (
+            <ChapterSurgery data={content.chapterSurgery} />
+          )}
+          {active === "cut-above" && (
+            <ChapterCutAbove data={content.chapterCutAbove} />
+          )}
         </motion.div>
       </AnimatePresence>
     </div>

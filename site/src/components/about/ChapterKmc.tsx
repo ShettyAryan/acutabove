@@ -10,7 +10,11 @@ import { StaggerGroup, StaggerItem } from "@/components/about/StaggerGroup";
 import { CHAPTER_KMC } from "@/lib/about-content";
 import { EASE_SIGNATURE, fadeLeft, scaleIn, staggerContainer } from "@/lib/motion";
 
-export function ChapterKmc() {
+export function ChapterKmc({
+  data = CHAPTER_KMC,
+}: {
+  data?: typeof CHAPTER_KMC;
+}) {
   return (
     <section className="overflow-hidden bg-mint py-section-sm md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
@@ -22,7 +26,7 @@ export function ChapterKmc() {
             variants={staggerContainer(0.1, 0.1)}
             className="order-2 grid grid-cols-2 gap-3 lg:order-1"
           >
-            {CHAPTER_KMC.images.map((image, i) => (
+            {data.images.map((image, i) => (
               <motion.div
                 key={image.src}
                 variants={scaleIn}
@@ -47,12 +51,12 @@ export function ChapterKmc() {
 
           <div className="order-1 lg:order-2">
             <ChapterHeader
-              number={CHAPTER_KMC.number}
-              chapter={CHAPTER_KMC.chapter}
-              title={CHAPTER_KMC.title}
+              number={data.number}
+              chapter={data.chapter}
+              title={data.title}
             />
             <StaggerGroup className="space-y-6" stagger={0.08}>
-              {CHAPTER_KMC.body.map((paragraph) => (
+              {data.body.map((paragraph) => (
                 <StaggerItem key={paragraph.slice(0, 40)}>
                   <p className="text-body-lg leading-[1.75] text-ink-muted">
                     {paragraph}
@@ -62,10 +66,10 @@ export function ChapterKmc() {
             </StaggerGroup>
             <Reveal variants={fadeLeft} duration={0.7} delay={0.2} amount={0.4}>
               <Link
-                href={CHAPTER_KMC.galleryLink.href}
+                href={data.galleryLink.href}
                 className="group mt-10 inline-flex items-center gap-3 border-b-2 border-primary/20 pb-2 font-body text-label uppercase text-primary transition-colors hover:border-primary"
               >
-                {CHAPTER_KMC.galleryLink.label}
+                {data.galleryLink.label}
                 <ArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1.5"

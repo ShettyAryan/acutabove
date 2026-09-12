@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { TeamHero } from "@/components/team/TeamHero";
 import { TeamDirectory } from "@/components/team/TeamDirectory";
 import { getAllTeamMembers } from "@/lib/cms/team";
+import { getTeamPageHero } from "@/lib/cms/pages";
 
 export const dynamic = "force-dynamic";
 
@@ -12,11 +13,14 @@ export const metadata: Metadata = {
 };
 
 export default async function TeamPage() {
-  const membersByTab = await getAllTeamMembers();
+  const [membersByTab, hero] = await Promise.all([
+    getAllTeamMembers(),
+    getTeamPageHero(),
+  ]);
 
   return (
     <>
-      <TeamHero />
+      <TeamHero hero={hero} />
       <TeamDirectory membersByTab={membersByTab} />
     </>
   );

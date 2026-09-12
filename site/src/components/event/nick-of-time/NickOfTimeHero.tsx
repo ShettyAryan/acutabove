@@ -7,13 +7,10 @@ import { NICK_OF_TIME } from "@/lib/nick-of-time-content";
 import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 
 export function NickOfTimeHero({
-  registerHref,
+  content = NICK_OF_TIME.hero,
 }: {
-  registerHref?: string;
+  content?: typeof NICK_OF_TIME.hero;
 }) {
-  const { hero } = NICK_OF_TIME;
-  const registerUrl = registerHref ?? hero.registerHref;
-
   return (
     <section className="relative flex min-h-[min(72vh,100dvh)] items-center justify-center overflow-hidden bg-primary px-edge pb-16 pt-28 text-center sm:pb-20 sm:pt-32 md:min-h-[78vh] md:pt-40">
       <motion.div
@@ -33,7 +30,7 @@ export function NickOfTimeHero({
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal onMount variants={wipeReveal} duration={1.2} delay={0.05}>
           <h1 className="font-display text-[2rem] font-bold uppercase leading-[1.05] tracking-[0.02em] text-accent text-balance sm:text-[3.25rem] sm:tracking-[0.06em] md:text-[4.5rem] md:tracking-[0.08em]">
-            {hero.title}
+            {content.title}
           </h1>
         </Reveal>
 
@@ -45,7 +42,7 @@ export function NickOfTimeHero({
           className="mx-auto mt-6 max-w-2xl sm:mt-8"
         >
           <p className="text-base leading-relaxed text-white/85 sm:text-body-lg">
-            {hero.subtitle}
+            {content.subtitle}
           </p>
         </Reveal>
 
@@ -56,10 +53,18 @@ export function NickOfTimeHero({
           delay={0.5}
           className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:justify-center sm:gap-4"
         >
-          <Button href={registerUrl} variant="tertiary" className="w-full sm:w-auto">
+          <Button
+            href={content.registerHref}
+            variant="tertiary"
+            className="w-full sm:w-auto"
+          >
             Register Now
           </Button>
-          <Button href={hero.brochureHref} variant="outline" className="w-full sm:w-auto">
+          <Button
+            href={content.brochureHref}
+            variant="outline"
+            className="w-full sm:w-auto"
+          >
             Brochure
           </Button>
         </Reveal>

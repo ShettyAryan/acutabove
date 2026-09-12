@@ -7,7 +7,11 @@ import { SutureDivider } from "@/components/layout/SutureDivider";
 import { TEAM_HERO } from "@/lib/team-content";
 import { fadeUp, wipeReveal, EASE_SIGNATURE } from "@/lib/motion";
 
-export function TeamHero() {
+export function TeamHero({
+  hero = TEAM_HERO,
+}: {
+  hero?: typeof TEAM_HERO;
+}) {
   return (
     <section className="relative flex min-h-[min(52vh,100dvh)] items-center justify-center overflow-hidden bg-primary px-edge pb-14 pt-28 text-center sm:pb-16 sm:pt-32 md:min-h-[56vh] md:pt-40">
       <motion.div
@@ -27,13 +31,13 @@ export function TeamHero() {
       <div className="relative z-10 mx-auto max-w-3xl">
         <Reveal onMount variants={fadeUp} duration={0.7} className="mb-6">
           <p className="font-body text-label uppercase tracking-[0.24em] text-accent">
-            {TEAM_HERO.eyebrow}
+            {hero.eyebrow}
           </p>
         </Reveal>
 
         <Reveal onMount variants={wipeReveal} duration={1.1} delay={0.1}>
           <h1 className="font-display text-[2.25rem] leading-[1.05] tracking-tight text-white text-balance sm:text-[3.5rem] md:text-[4rem]">
-            {TEAM_HERO.title}
+            {hero.title}
           </h1>
         </Reveal>
 
@@ -45,7 +49,7 @@ export function TeamHero() {
           className="mx-auto mt-8 max-w-2xl"
         >
           <p className="text-body-lg leading-relaxed text-white/80">
-            {TEAM_HERO.subtitle}
+            {hero.subtitle}
           </p>
         </Reveal>
 

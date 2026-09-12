@@ -9,7 +9,11 @@ import { StaggerGroup, StaggerItem } from "@/components/about/StaggerGroup";
 import { CHAPTER_CUT_ABOVE } from "@/lib/about-content";
 import { EASE_SIGNATURE, fadeLeft, scaleIn } from "@/lib/motion";
 
-export function ChapterCutAbove() {
+export function ChapterCutAbove({
+  data = CHAPTER_CUT_ABOVE,
+}: {
+  data?: typeof CHAPTER_CUT_ABOVE;
+}) {
   return (
     <section className="overflow-hidden bg-primary py-section-sm text-white md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
@@ -30,8 +34,8 @@ export function ChapterCutAbove() {
                 transition={{ duration: 4.5, repeat: Infinity, ease: EASE_SIGNATURE }}
               >
                 <Image
-                  src={CHAPTER_CUT_ABOVE.logo.src}
-                  alt={CHAPTER_CUT_ABOVE.logo.alt}
+                  src={data.logo.src}
+                  alt={data.logo.alt}
                   width={280}
                   height={280}
                   className="h-auto w-full max-w-[220px] object-contain md:max-w-[260px]"
@@ -42,13 +46,13 @@ export function ChapterCutAbove() {
 
           <div>
             <ChapterHeader
-              number={CHAPTER_CUT_ABOVE.number}
-              chapter={CHAPTER_CUT_ABOVE.chapter}
-              title={CHAPTER_CUT_ABOVE.title}
+              number={data.number}
+              chapter={data.chapter}
+              title={data.title}
               dark
             />
             <StaggerGroup className="space-y-6" stagger={0.08}>
-              {CHAPTER_CUT_ABOVE.body.map((paragraph) => (
+              {data.body.map((paragraph) => (
                 <StaggerItem key={paragraph.slice(0, 40)}>
                   <p className="text-body-lg leading-[1.75] text-white/80">
                     {paragraph}
@@ -61,7 +65,7 @@ export function ChapterCutAbove() {
               stagger={0.12}
               delay={0.05}
             >
-              {CHAPTER_CUT_ABOVE.stats.map((stat) => (
+              {data.stats.map((stat) => (
                 <StaggerItem key={stat.label}>
                   <StatBlock {...stat} className="text-white" />
                 </StaggerItem>
@@ -69,7 +73,7 @@ export function ChapterCutAbove() {
             </StaggerGroup>
             <Reveal variants={fadeLeft} duration={0.75} delay={0.15} amount={0.4}>
               <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                {CHAPTER_CUT_ABOVE.ctas.map((cta) =>
+                {data.ctas.map((cta) =>
                   cta.variant === "solid" ? (
                     <Button
                       key={cta.href}

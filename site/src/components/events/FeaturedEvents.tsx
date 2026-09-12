@@ -93,7 +93,11 @@ function EventCard({ event }: { event: FeaturedEvent }) {
   );
 }
 
-export function FeaturedEvents() {
+export function FeaturedEvents({
+  events = FEATURED_EVENTS,
+}: {
+  events?: FeaturedEvent[];
+}) {
   return (
     <section className="bg-background py-section-sm md:py-section">
       <div className="mx-auto w-full max-w-container-max px-edge md:px-edge-lg">
@@ -102,7 +106,7 @@ export function FeaturedEvents() {
           stagger={0.14}
           amount={0.15}
         >
-          {FEATURED_EVENTS.map((event) => (
+          {events.map((event) => (
             <StaggerItem
               key={event.id}
               variants={scaleIn}

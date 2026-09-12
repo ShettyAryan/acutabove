@@ -6,6 +6,7 @@ import { NickOfTimeCountdown } from "@/components/event/nick-of-time/NickOfTimeC
 import { NickOfTimePrograms } from "@/components/event/nick-of-time/NickOfTimePrograms";
 import { NickOfTimeFinalCta } from "@/components/event/nick-of-time/NickOfTimeFinalCta";
 import { getNickOfTimePrograms } from "@/lib/cms/nick-of-time";
+import { getNickOfTimePageContent } from "@/lib/cms/nick-of-time-page";
 import { getRegisterFormUrl } from "@/lib/cms/site-settings";
 
 export const dynamic = "force-dynamic";
@@ -17,19 +18,29 @@ export const metadata: Metadata = {
 };
 
 export default async function NickOfTimePage() {
-  const [programsList, registerHref] = await Promise.all([
+  const registerHref = await getRegisterFormUrl();
+  const [programsList, content] = await Promise.all([
     getNickOfTimePrograms(),
-    getRegisterFormUrl(),
+    getNickOfTimePageContent(registerHref),
   ]);
 
   return (
     <>
-      <NickOfTimeHero registerHref={registerHref} />
-      <NickOfTimeAbout />
-      <NickOfTimeHeritage />
-      <NickOfTimeCountdown />
-      <NickOfTimePrograms programsList={programsList} />
-      <NickOfTimeFinalCta registerHref={registerHref} />
+      <NickOfTimeHero content={content.hero} />
+      <NickOfTimeAbout
+        content={content.about}
+        collage={content.aboutCollage}
+      />
+      <NickOfTimeHeritage content={content.heritage} />
+      <NickOfTimeCountdown
+        eventDate={content.eventDate}
+        content={content.countdown}
+      />
+      <NickOfTimePrograms
+        programsList={programsList}
+        content={content.programs}
+      />
+      <NickOfTimeFinalCta content={content.finalCta} />
     </>
   );
 }
