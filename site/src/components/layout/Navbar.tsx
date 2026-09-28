@@ -98,11 +98,22 @@ export function Navbar({
           <Link
             href="/"
             className={cn(
-              "max-w-full truncate font-display text-base leading-none tracking-tight transition-colors sm:text-xl lg:text-2xl",
+              "flex max-w-full min-w-0 items-center gap-2 font-display text-base leading-none tracking-tight transition-colors sm:gap-2.5 sm:text-xl lg:text-2xl",
               transparent ? "text-white" : "text-primary"
             )}
           >
-            {site.siteName}
+            <Image
+              src={site.brandLogo.src}
+              alt=""
+              width={36}
+              height={36}
+              aria-hidden
+              className={cn(
+                "h-7 w-7 shrink-0 rounded-full object-cover sm:h-8 sm:w-8 lg:h-9 lg:w-9",
+                transparent && "ring-1 ring-white/30"
+              )}
+            />
+            <span className="truncate">{site.siteName}</span>
           </Link>
           <nav
             aria-label="Primary"
